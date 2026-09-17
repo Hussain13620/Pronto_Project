@@ -1,0 +1,26 @@
+.homepart{
+    padding-left: 250px;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.loginbtn{
+    padding-left: 350px;
+}
+.general{
+    text-decoration: none;
+     color: black;
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 2px;
+
+}
+.general:hover{
+    color: #76C457;
+    text-decoration: underline,color(#76C457);
+}
+.homepart:hover{
+        color: #76C457;
+
+}
