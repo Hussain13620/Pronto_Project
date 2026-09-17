@@ -214,19 +214,28 @@
         </div>
 
         <div id="worker-section" class="form-section">
-            <h2>Worker Login</h2>
+            <h1 style="text-align: center;">Sign Up</h1>
+
+            <div class="divider"> SIGN UP / (ಅಥವಾ ನೋಂದಾಯಿಸಿ)</div>
+
             <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="w-email">Worker Phone number / (ಕೆಲಸಗಾರರ ದೂರವಾಣಿ ಸಂಖ್ಯೆ)</label>
-                    <input type="text" id="w-email" required placeholder="Enter Phone number">
+                <div class="form-group row">
+                    <div>
+                        <label for="w-fname"> Name / (ಹೆಸರು)</label>
+                        <input type="text" id="w-fname" required>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="w-password">Password / (ಗುಪ್ತಪದ)</label>
-                    <input type="password" id="w-password" required placeholder="••••••••">
+                    <label for="w-reg-email">Phone Number / (ದೂರವಾಣಿ ಸಂಖ್ಯೆ)</label>
+                    <input type="email" id="w-reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="w-reg-password">Create Password / (ಗುಪ್ತಪದವನ್ನು ರಚಿಸಿ)</label>
+                    <input type="password" id="w-reg-password" required placeholder="">
                 </div>
                 <button type="submit" class="btn btn-worker">
-                    <a href="" class="login">
-                        Log In  /  (ಲಾಗಿನ್)
+                    <a href="" class="workers">
+                        Register as Worker / (ಕೆಲಸಗಾರರಾಗಿ ನೋಂದಾಯಿಸಿ)
                     </a>
                 </button>
             </form>
@@ -236,20 +245,34 @@
                 <h1>Welcome to <span class="kaamkaaj">KAAMKAAJ</span></h1>
             </div>
             <br>
-            <h2>User Login</h2>
+
+             <div class="divider"> SIGN UP</div>
+            <h1 style="text-align: center;">
+                Sign Up
+            </h1>
+            <br>
             <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="u-email">Email / Username</label>
-                    <input type="text" id="u-email" required placeholder="Enter email or username">
+                <div class="form-group row">
+                    <div>
+                        <label for="w-fname"> Name </label>
+                        <input type="text" id="w-fname" required>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="u-password">Password</label>
-                    <input type="password" id="u-password" required placeholder="••••••••">
+                    <label for="w-reg-email">Phone Number </label>
+                    <input type="email" id="w-reg-email" required>
                 </div>
-                <button type="submit" class="btn btn-user">
-                    <a href="" class="userlog">Log  In</a>
+                <div class="form-group">
+                    <label for="w-reg-password">Create Password </label>
+                    <input type="password" id="w-reg-password" required placeholder="">
+                </div>
+                <button type="submit" class="btn btn-worker">
+                    <a href="" class="workers">
+                        Register as user
+                    </a>
                 </button>
             </form>
+        </div>
 
     </div>
 
