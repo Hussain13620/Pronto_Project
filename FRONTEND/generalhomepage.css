@@ -68,7 +68,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     padding:10px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .register a:hover{
@@ -98,4 +98,51 @@ body {
 }
 .generalbtn:hover{
     color: #45c115;
+}
+.wholepart{
+    padding-left: 70px;
+    text-align: left;
+}
+.lady{
+    padding-left: 430px;
+
+}
+.text{
+    color: grey;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    font-size: 15px;
+}
+.work{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+.servicebtn{
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #45c115;
+        color: white;
+        border-radius: 10px;
+        border-color: #45c115;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: large;
+}
+.workingbtn{
+         padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: white;
+        color:#0056b3;
+        border-radius: 10px;
+        border-color: #0056b3;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: large;
+}
+.homepart{
+    background-color: aliceblue;
 }
