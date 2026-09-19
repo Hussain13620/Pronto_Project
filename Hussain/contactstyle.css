@@ -4,168 +4,318 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Robust', sans-serif;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.container {
+button {
+    font-family: inherit;
+}
+
+body {
+    font-family: 'Robust', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    background-color: #f8f9fa;
+    color: #26374c;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header & Navbar Fixes --- */
+.header {
     width: 100%;
-    padding: 20px 40px;
+    height: 80px;
+    background: white;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar {
-    width: 100%;
-}
-
-.navbar nav {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
-    width: 100%;
+    padding: 0 30px;
 }
 
-.img,
-.nav,
-.register {
+.logo {
     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #078b67;
+    color: white;
+
+    border-radius: 5px 5px 12px 12px;
+
+    font-size: 20px;
+}
+
+.logo-text h2 {
+    color: #087b60;
+    font-size: 21px;
+    letter-spacing: .5px;
+}
+
+.logo-text span {
+    font-size: 10px;
+    color: #5f7082;
+}
+.nav-links {
+    display: flex;
+    gap: 40px;
     align-items: center;
 }
 
-.img {
-    flex: 1;
-    max-width: 300px;
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    transition: color 0.2s ease;
+    padding: 10px 0;
+    position: relative;
 }
 
-.img img {
-    display: block;
-    width: 300px;
-    height: 80px;
+.nav-links a:hover {
+    color: #008662;
 }
 
-.nav {
-    flex: 2;
-    justify-content: center;
-    gap: 70px;
+.nav-links a.active {
+    color: #008662;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #008662;
+    border-radius: 2px 2px 0 0;
+}
+
+.nav-buttons {
     display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(221, 220, 220);
-    padding: 20px;
-    border-radius: 40px;
-
+    gap: 12px;
+    align-items: center;
 }
 
-.nav a:hover{
-    color: #45c115;
-    transform: scale(1.06);
-    text-shadow: 0 2px 10px rgb(226, 235, 224);
+.login-btn,
+.signup-btn {
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
-.register {
+.login-btn {
+    border: 1px solid #087d63;
+    color: #075f4d;
+}
+
+.login-btn:hover {
+    background: #f0fdf4;
+}
+
+.signup-btn {
+    background: #078866;
+    color: white;
+}
+
+.signup-btn:hover {
+    background: #066d53;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #087b60;
+    cursor: pointer;
+}
+
+/* --- Contact Container & Form Layout --- */
+.container {
     flex: 1;
-    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
-.register a{
-    background-color: #28a745;
-    border: 2px solid #45c115;
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding:10px;
-    border-radius: 10px;
-}
-
-.register a:hover{
-    background-color: white;
-    color: black;
-}
-
-.nav a {
-    text-decoration: none;
-    color: #111;
-    font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    .navbar nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav,
-    .register {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-.container .form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.container .body {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 700px;
-    height: 70vh;
-    background-color:#28a745;
-    box-shadow: 0 0 10px black;
-    border-radius: 15px;
-    margin-right: 50px;
     align-items: stretch;
-    justify-content: center;
+    height: 500px;
+    width: 600px;
+    background-color: #078866;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+    padding: 35px;
+}
+
+.form-content h1 {
+    
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.form-content label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+}
+
+.form-content input {
+    height: 46px;
+    border: none;
+    border-radius: 25px;
+    padding: 0 20px;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-content input::placeholder,
+.form-content textarea::placeholder {
+    color: #a0aec0;
+}
+
+.form-content #problem {
+    height: 130px;
+    resize: none;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: white;
+    color: #333;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form button[type="submit"] {
+    height: 48px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: #21715c;
     color: white;
-    padding: 20px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form button[type="submit"]:hover {
+    background-color: #f7fafc;
+    color:black;
+    border: 2px solid #078866;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Mobile Dropdown Panel --- */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
     gap: 15px;
 }
 
-.container .body{
+.mobile-menu.active {
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    margin-top: 40px;
 }
 
-.container .body #problem{
-    height: 150px;
-    border: none;
-    padding: 15px;
-    border-radius: 30px;
-    box-shadow: 0 0 5px rgb(112, 112, 112);
+.mobile-menu a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #26374c;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-.container .body input{
-    height: 30px;
-    border: none;
-    border-radius: 40px;
-    padding: 10px;
-    box-shadow: 0 0 5px rgb(112, 112, 112);
+.mobile-auth-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
 }
 
-.container .form button{
-    height: 40px;
-    width: 500px;
-    margin-top: 25px;
-    margin-left:60px;
-    border-radius: 50px;
-    border: none;
-    background-color: #45c115;
-    color: white;
-    font-weight:600;
-    transition: all 0.3s ease;
-    margin-right: 120px;
-    border: 5px solid #28a745;
+.mobile-auth-buttons a {
+    flex: 1;
+    text-align: center;
+    border-bottom: none;
 }
 
-.container .form button:hover{
-    background-color: white;
-    color: #111;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px black;
+/* --- Responsive Media Queries --- */
+@media (max-width: 850px) {
+    .nav-links,
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .header {
+        height: 70px;
+    }
+
+    .mobile-menu {
+        top: 70px;
+    }
+
+    .form {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
 }

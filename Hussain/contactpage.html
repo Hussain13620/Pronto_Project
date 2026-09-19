@@ -3,42 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="contactstyle.css">
 </head>
 <body>
-    <section class="container">
-        <section class="navbar">
-            <nav>
-              <section class="img">
-                    <a href="genearlhome.html">
-                        <img src="..\images\kaamkaaj_logo_green_v2.svg" alt="Kaamkaaj" height=80px width=300px>
-                    </a>
-              </section>
-              <section class="nav">
-                    <a href="genearlhome.html">Home</a>
-                    <a href="">Services</a>
-                    <a href="">About</a>
-                    <a href="">Contact</a>
-              </section>
-              <section class="register">
-                <a href="">Login</a>
-                <a href="">Sign Up</a>
-              </section>
-            </nav>
-        </section>
-        <form class="form">
-            <section class="body">
-                <h1>CONTACT US</h1>
-                <label>Name</label>
-                <input id="name" type="text" placeholder="Enter your name">
-                <label>Phone no</label>
-                <input id="email" type="email" placeholder="Enter your phone number">
-                <label>Describe your problem</label>
-                <textarea id="problem" placeholder="Enter your problem"></textarea>
-            </section>
-            <button>Submit</button>
-        </form>
-    </section>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="navbar">
+                <a href="#" class="logo">
+                    <img src="../images/kaamkaaj_logo_green_v2.svg" alt="KaamKaaj Logo" height="70px" height="200px">
+                </a>
+
+                <nav class="nav-links">
+                    <a href="home.html">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="" class="active">Contact</a>
+                </nav>
+
+                <div class="nav-buttons">
+                    <a href="login.html" class="login-btn">Login</a>
+                    <a href="signup.html" class="signup-btn">Sign Up</a>
+                </div>
+
+                <button class="menu-btn" id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#" class="active">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="mobile-auth-buttons">
+                    <a href="login.html" class="login-btn">Login</a>
+                    <a href="signup.html" class="signup-btn">Sign Up</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <form class="form">
+                <div class="form-content">
+                    <h1>CONTACT US</h1>
+                    
+                    <label for="name">Name</label>
+                    <input id="name" type="text" placeholder="Enter your name">
+                    
+                    <label for="email">Phone no</label>
+                    <input id="email" type="tel" placeholder="Enter your phone number">
+                    
+                    <label for="problem">Describe your problem</label>
+                    <textarea id="problem" placeholder="Enter your problem"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 </html>
