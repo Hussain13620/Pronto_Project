@@ -204,8 +204,8 @@ import json
 
 @when("click", "#worker-login-btn")
 async def handle_worker_login(event):
-    phone = js.document.getElementById("w-phone").value.
-    password = js.document.getElementById("w-password").value.
+    phone = js.document.getElementById("w-phone").value
+    password = js.document.getElementById("w-password").value
     
     payload = {
         "phone_number": phone,
@@ -228,10 +228,14 @@ async def handle_worker_login(event):
             status_box.style.backgroundColor = "#0056b3"
             status_box.innerText = f"🎉 {result['message']}"
             status_box.style.display = "block"
+            js.document.getElementById("w-phone").value = ""
+            js.document.getElementById("w-password").value = ""
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
             status_box.style.display = "block"
+            js.document.getElementById("w-phone").value = ""
+            js.document.getElementById("w-password").value = ""
 
 @when("click", "#worker-signup-btn")
 async def handle_worker_signup(event):
@@ -261,8 +265,14 @@ async def handle_worker_signup(event):
             status_box.style.backgroundColor = "#0056b3"
             status_box.innerText = "🎉 Worker registered successfully! You can now log in."
             status_box.style.display = "block"
+            js.document.getElementById("w-fname").value = ""
+            js.document.getElementById("w-reg-phone").value = ""
+            js.document.getElementById("w-reg-password").value = ""
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = "❌ Registration failed. Please try again."
             status_box.style.display = "block"
+            js.document.getElementById("w-fname").value = ""
+            js.document.getElementById("w-reg-phone").value = ""
+            js.document.getElementById("w-reg-password").value = ""
 </script>

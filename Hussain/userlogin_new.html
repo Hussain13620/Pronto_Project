@@ -228,10 +228,14 @@ async def handle_user_login(event):
             status_box.style.backgroundColor = "#28a745"
             status_box.innerText = f"🎉 {result['message']}"
             status_box.style.display = "block"
+            js.document.getElementById("u-email").value = ""
+            js.document.getElementById("u-password").value = ""
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
             status_box.style.display = "block"
+            js.document.getElementById("u-email").value = ""
+            js.document.getElementById("u-password").value = ""
 
 @when("click", "#user-signup-btn")
 async def handle_user_signup(event):
@@ -262,8 +266,16 @@ async def handle_user_signup(event):
         status_box.style.backgroundColor = "#28a745"
         status_box.innerText = "🎉 User registered successfully! You can now log in."
         status_box.style.display = "block"
+        js.document.getElementById("u-name").value = ""
+        js.document.getElementById("u-reg-email").value = ""
+        js.document.getElementById("u-phone").value = ""
+        js.document.getElementById("u-reg-password").value = ""
     else:
         status_box.style.backgroundColor = "#dc3545"
         status_box.innerText = "❌ Registration failed. Please try again."
         status_box.style.display = "block"
+        js.document.getElementById("u-name").value = ""
+        js.document.getElementById("u-reg-email").value = ""
+        js.document.getElementById("u-phone").value = ""
+        js.document.getElementById("u-reg-password").value = ""
 </script>
