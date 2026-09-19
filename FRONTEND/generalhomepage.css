@@ -1,156 +1,148 @@
-.homepart{
-    padding-left: 230px;
-    text-decoration: none;
-    color: black;
-    font-size: 17px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.loginbtn{
-    padding-left: 250px;
+
+body {
+    font-family: 'Robust', sans-serif;
+}
+
+.container {
+    width: 100%;
+    padding: 20px 40px;
+}
+
+.navbar {
+    width: 100%;
     
 }
-.general{
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+
+.img,
+.nav,
+.register {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    flex: 1;
+    max-width: 300px;
+}
+
+.img img {
+    display: block;
+    width: 300px;
+    height: 80px;
+}
+
+.nav {
+    flex: 2;
+    justify-content: center;
+    gap: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(221, 220, 220);
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.register {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.register a{
+    background-color: #45c115;
+    border: #45c115;
+    color: white;
     text-decoration: none;
-     color: black;
-    font-size: 17px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 2px;
+    font-weight: 600;
+    padding:10px;
+    border-radius: 10px;
+}
+
+.register a:hover{
+    background-color: white;
+    color: black;
+    border: #45c115;
 
 }
-.general:hover{
+
+.nav a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav,
+    .register {
+        width: 100%;
+        justify-content: center;
+    }
+}
+.generalbtn:hover{
     color: #45c115;
-    text-decoration: underline,color(#45c115);
 }
-.homepart:hover{
-        color: #45c115;
-
-}
-.loginpart{
-    border-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-
-}
-.loginpart:hover{
-    border-color: #45c115;
-    background-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    color: white;
-}
-.signinbtn{
-    border-color: #45c115;
-    background-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    color: white;
-    
-}
-.signinbtn:hover{
-    border-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    color: black;
-
-}
-.bgimg{
-    background-image: url(/Pronto_Project/images/kaamkaaj_hero_cleaning_photo.png);
-    height: 300px;
-    width: 600px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
-
-.emptytable{
-    padding-right: 295px;
+.wholepart{
+    padding-left: 70px;
     text-align: left;
-    padding-left: 30px;
 }
-.services{
-    border-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-}
-.services:hover{
-    border-color: #45c115;
-    background-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    color: white;       
-}
+.lady{
+    padding-left: 430px;
 
-.book{
-    text-decoration: none;
-    color: black;
 }
-.workerbtn{
-    border-color: #45c115;
-    background-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    cursor: pointer;
+.text{
+    color: grey;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    color: white;   
+    font-weight: lighter;
+    font-size: 15px;
 }
-.workerbtn:hover{
-      border-color: #45c115;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
+.work{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px; 
-    color: black; 
+    font-size: 30px;
 }
-.buttons{
-    text-decoration: none;
-    color: white;    
+.servicebtn{
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #45c115;
+        color: white;
+        border-radius: 10px;
+        border-color: #45c115;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: large;
 }
-    
+.workingbtn{
+         padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: white;
+        color:#0056b3;
+        border-radius: 10px;
+        border-color: #0056b3;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: large;
+}
+.homepart{
+    background-color: aliceblue;
+}
