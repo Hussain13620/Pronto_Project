@@ -16,7 +16,7 @@ table_2="worker_data"
 schema_2={
     "ID":"INT AUTO_INCREMENT PRIMARY KEY",
     "worker_name":"VARCHAR(250)",
-    "phone_number":"VARCHAR(10)",
+    "phone_number":"VARCHAR(10) UNIQUE",
     "worker_pass":"VARCHAR(250)"
 }
 createtable(host,user,password,database,table_2,schema_2)
