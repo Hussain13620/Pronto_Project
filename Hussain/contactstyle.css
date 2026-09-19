@@ -28,23 +28,23 @@ body {
 /* --- Header & Navbar Fixes --- */
 .header {
     width: 100%;
-    height: 80px;
+    height: 72px;
     background: white;
-    border-bottom: 1px solid #eaeaea;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .navbar {
-    max-width: 1200px;
+    max-width: 1150px;
     height: 100%;
-    margin: 0 auto;
+    margin: auto;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
 }
+
+
+/* Logo */
 
 .logo {
     display: flex;
@@ -78,53 +78,43 @@ body {
     font-size: 10px;
     color: #5f7082;
 }
+
+
+/* Navigation */
+
 .nav-links {
     display: flex;
-    gap: 40px;
-    align-items: center;
+    gap: 38px;
+    margin-left: auto;
+    margin-right: 65px;
 }
 
 .nav-links a {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #4a5568;
-    transition: color 0.2s ease;
-    padding: 10px 0;
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: #008662;
+    color: #26374c;
+    padding: 27px 0 23px;
 }
 
 .nav-links a.active {
     color: #008662;
+    border-bottom: 2px solid #008662;
 }
 
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -22px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #008662;
-    border-radius: 2px 2px 0 0;
-}
+
+/* Buttons */
 
 .nav-buttons {
     display: flex;
-    gap: 12px;
-    align-items: center;
+    gap: 14px;
 }
 
 .login-btn,
 .signup-btn {
-    padding: 10px 24px;
-    border-radius: 10px;
+    padding: 10px 27px;
+    border-radius: 11px;
     font-size: 13px;
     font-weight: 600;
-    transition: all 0.2s ease;
 }
 
 .login-btn {
@@ -132,17 +122,9 @@ body {
     color: #075f4d;
 }
 
-.login-btn:hover {
-    background: #f0fdf4;
-}
-
 .signup-btn {
     background: #078866;
     color: white;
-}
-
-.signup-btn:hover {
-    background: #066d53;
 }
 
 .menu-btn {
@@ -151,9 +133,7 @@ body {
     border: none;
     font-size: 24px;
     color: #087b60;
-    cursor: pointer;
 }
-
 /* --- Contact Container & Form Layout --- */
 .container {
     flex: 1;
@@ -274,10 +254,10 @@ body {
 .mobile-menu a {
     font-size: 15px;
     font-weight: 600;
-    color: #26374c;
     padding: 8px 0;
     border-bottom: 1px solid #f1f5f9;
 }
+
 
 .mobile-auth-buttons {
     display: flex;
@@ -290,6 +270,75 @@ body {
     text-align: center;
     border-bottom: none;
 }
+
+.footer {
+    min-height: 75px;
+
+    background: #132b43;
+    color: white;
+
+    padding: 14px max(30px, calc((100% - 1150px) / 2));
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-house {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: white;
+    color: #087b60;
+}
+
+.footer-logo h2 {
+    font-size: 17px;
+}
+
+.footer-logo p {
+    font-size: 9px;
+    color: #bdcad5;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    font-size: 10px;
+    color: #dce5ed;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.socials a {
+    font-size: 14px;
+}
+
+.socials p {
+    margin-left: 10px;
+    font-size: 9px;
+    color: #bdcad5;
+}
+
 
 /* --- Responsive Media Queries --- */
 @media (max-width: 850px) {
