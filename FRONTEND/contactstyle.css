@@ -15,7 +15,6 @@ body {
 
 .navbar {
     width: 100%;
-    margin-bottom: 40px;
 }
 
 .navbar nav {
@@ -69,8 +68,8 @@ body {
 }
 
 .register a{
-    background-color: #45c115;
-    border: #45c115;
+    background-color: #28a745;
+    border: 2px solid #45c115;
     color: white;
     text-decoration: none;
     font-weight: 600;
@@ -102,29 +101,38 @@ body {
     }
 }
 
-.container .body form{
+.container .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container .body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     width: 700px;
     height: 70vh;
-    background-color: rgba(171, 168, 168, 0.3);
+    background-color:#28a745;
     box-shadow: 0 0 10px black;
-    border-radius: 30px;
+    border-radius: 15px;
+    margin-right: 50px;
     align-items: stretch;
     justify-content: center;
+    color: white;
     padding: 20px;
     gap: 15px;
 }
 
 .container .body{
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
-.container .body form #problem{
+.container .body #problem{
     height: 150px;
     border: none;
     padding: 15px;
@@ -132,7 +140,7 @@ body {
     box-shadow: 0 0 5px rgb(112, 112, 112);
 }
 
-.container .body form input{
+.container .body input{
     height: 30px;
     border: none;
     border-radius: 40px;
@@ -140,7 +148,7 @@ body {
     box-shadow: 0 0 5px rgb(112, 112, 112);
 }
 
-.container .body form button{
+.container .form button{
     height: 40px;
     width: 500px;
     margin-top: 25px;
@@ -151,10 +159,12 @@ body {
     color: white;
     font-weight:600;
     transition: all 0.3s ease;
+    margin-right: 120px;
+    border: 5px solid #28a745;
 }
 
-.container .body form button:hover{
-    background-color: #4ae40c;
+.container .form button:hover{
+    background-color: white;
     color: #111;
     transform: scale(1.05);
     box-shadow: 0 0 10px black;
