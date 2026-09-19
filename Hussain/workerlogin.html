@@ -204,8 +204,8 @@ import json
 
 @when("click", "#worker-login-btn")
 async def handle_worker_login(event):
-    phone = js.document.getElementById("w-phone").value.
-    password = js.document.getElementById("w-password").value.
+    phone = js.document.getElementById("w-phone").value
+    password = js.document.getElementById("w-password").value
     
     payload = {
         "phone_number": phone,
