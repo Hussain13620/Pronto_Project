@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAAMKAAJ Signup</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .toggle-container {
+            display: flex;
+            background: #f0f2f5;
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .toggle-label {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: color 0.3s;
+            z-index: 1;
+        }
+
+        #worker-tab:checked ~ .toggle-container .label-worker,
+        #user-tab:checked ~ .toggle-container .label-user {
+            color: #fff;
+        }
+
+        .toggle-bg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: calc(50% - 5px);
+            height: calc(100% - 10px);
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+            z-index: 0;
+        }
+
+        #worker-tab:checked ~ .toggle-container .toggle-bg {
+            background: #0056b3;
+            transform: translateX(0);
+        }
+
+        #user-tab:checked ~ .toggle-container .toggle-bg {
+            background: #28a745;
+            transform: translateX(100%);
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        #worker-tab:checked ~ #worker-section,
+        #user-tab:checked ~ #user-section {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: #666;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-worker { background: #0056b3; }
+        .btn-user { background: #28a745; }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #ddd;
+        }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .kaamkaaj {
+            color: #28a745;
+        }
+        .kaam {
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+
+        #status-message {
+            display: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="start">
+            <img src="./images/kaamkaaj_logo_blue_v2.svg" alt="Logo" height="100px" width="200px" class="kaam">
+        </div>
+
+        <input type="radio" id="worker-tab" name="portal-switch" class="tab-input" checked style="display:none;">
+        <input type="radio" id="user-tab" name="portal-switch" class="tab-input" style="display:none;">
+        
+        <div class="toggle-container">
+            <div class="toggle-bg"></div>
+            <label for="worker-tab" class="toggle-label label-worker">Worker Portal</label>
+            <label for="user-tab" class="toggle-label label-user">User Portal</label>
+        </div>
+
+        <div id="status-message"></div>
+
+        <!-- WORKER SIGNUP SECTION -->
+        <div id="worker-section" class="form-section">
+            <h2>Worker Sign Up</h2>
+            <div class="divider">Register as Worker</div>
+            <div>
+                <div class="form-group">
+                    <label for="w-fname">Name / (ಹೆಸರು)</label>
+                    <input type="text" id="w-fname" required placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="w-reg-phone">Phone Number / (ದೂರವಾಣಿ ಸಂಖ್ಯೆ)</label>
+                    <input type="text" id="w-reg-phone" required placeholder="10-digit number">
+                </div>
+                <div class="form-group">
+                    <label for="w-reg-password">Create Password / (ಗುಪ್ತಪದವನ್ನು ರಚಿಸಿ)</label>
+                    <input type="password" id="w-reg-password" required placeholder="••••••••">
+                </div>
+                <button type="button" class="btn btn-worker" id="worker-signup-btn">
+                    Register as Worker / (ಕೆಲಸಗಾರರಾಗಿ ನೋಂದಾಯಿಸಿ)
+                </button>
+            </div>
+        </div>
+
+        <!-- USER SIGNUP SECTION -->
+        <div id="user-section" class="form-section">
+            <div>
+                <h1 style="text-align: center; font-size: 22px; margin-bottom: 10px;">Welcome to <span class="kaamkaaj">KAAMKAAJ</span></h1>
+            </div>
+            <h2>User Sign Up</h2>
+            <div class="divider">Register as User</div>
+            <div>
+                <div class="form-group">
+                    <label for="u-name">Full Name</label>
+                    <input type="text" id="u-name" required placeholder="Enter full name">
+                </div>
+                <div class="form-group">
+                    <label for="u-reg-email">Email Address</label>
+                    <input type="email" id="u-reg-email" required placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="u-phone">Phone Number</label>
+                    <input type="text" id="u-phone" required placeholder="10-digit number">
+                </div>
+                <div class="form-group">
+                    <label for="u-reg-password">Create Password</label>
+                    <input type="password" id="u-reg-password" required placeholder="Min. 6 characters">
+                </div>
+                <button type="button" class="btn btn-user" id="user-signup-btn">
+                    Create User Account
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script type="py">
+from pyscript import when
+from pyodide.http import pyfetch
+import js
+import json
+
+@when("click", "#worker-signup-btn")
+async def handle_worker_signup(event):
+    name = js.document.getElementById("w-fname").value.strip()
+    phone = js.document.getElementById("w-reg-phone").value.strip()
+    password = js.document.getElementById("w-reg-password").value.strip()
+    
+    payload = {
+        "worker_name": name,
+        "phone_number": phone,
+        "worker_pass": password
+    }
+    
+    response = await pyfetch(
+        "http://127.0.0.1:8000/worker-signup",
+        method="POST",
+        headers={"Content-Type": "application/json"},
+        body=json.dumps(payload)
+    )
+    
+    result = await response.json()
+    status_box = js.document.getElementById("status-message")
+    if status_box:
+        if response.status == 200 and result.get("status") == "success":
+            status_box.style.backgroundColor = "#0056b3"
+            status_box.innerText = f"🎉 {result['message']}"
+            status_box.style.display = "block"
+            js.document.getElementById("w-fname").value = ""
+            js.document.getElementById("w-reg-phone").value = ""
+            js.document.getElementById("w-reg-password").value = ""
+        else:
+            status_box.style.backgroundColor = "#dc3545"
+            status_box.innerText = f"❌ {result.get('message', 'Registration failed')}"
+            status_box.style.display = "block"
+            js.document.getElementById("w-fname").value = ""
+            js.document.getElementById("w-reg-phone").value = ""
+            js.document.getElementById("w-reg-password").value = ""
+
+@when("click", "#user-signup-btn")
+async def handle_user_signup(event):
+    name = js.document.getElementById("u-name").value.strip()
+    email = js.document.getElementById("u-reg-email").value.strip()
+    phone = js.document.getElementById("u-phone").value.strip()
+    password = js.document.getElementById("u-reg-password").value.strip()
+    
+    payload = {
+        "username": name,
+        "email": email,
+        "phone_no": phone,
+        "password": password
+    }
+    
+    response = await pyfetch(
+        "http://127.0.0.1:8000/signup",
+        method="POST",
+        headers={"Content-Type": "application/json"},
+        body=json.dumps(payload)
+    )
+    
+    result = await response.json()
+    status_box = js.document.getElementById("status-message")
+    if status_box:
+        if response.status == 200 and result.get("status") == "success":
+            status_box.style.backgroundColor = "#28a745"
+            status_box.innerText = f"🎉 {result['message']}"
+            status_box.style.display = "block"
+            js.document.getElementById("u-name").value = ""
+            js.document.getElementById("u-reg-email").value = ""
+            js.document.getElementById("u-phone").value = ""
+            js.document.getElementById("u-reg-password").value = ""
+        else:
+            status_box.style.backgroundColor = "#dc3545"
+            status_box.innerText = f"❌ {result.get('message', 'Registration failed')}"
+            status_box.style.display = "block"
+            js.document.getElementById("u-name").value = ""
+            js.document.getElementById("u-reg-email").value = ""
+            js.document.getElementById("u-phone").value = ""
+            js.document.getElementById("u-reg-password").value = ""
+</script>
