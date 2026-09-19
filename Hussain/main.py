@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from sqlfunct import insertdata
 from sqlfunct import get_db_connection
+import mysql.connector
 
 app=FastAPI()
 app.add_middleware(
@@ -58,11 +59,24 @@ def signup_info(credentials: user_signup_credentials):
         "phone_number":credentials.phone_no,
         "user_pass":credentials.password
     }
-    insertdata(host,user,password,database,table,user_data_dict)
-    return{
-        "status":"recieved",
-        "message":f"User {credentials.username} registered Successfully"
-    }
+    try:
+        insertdata(host, user, password, database, table, user_data_dict)
+        return {
+            "status": "success",
+            "message": f"User {credentials.username} registered successfully!"
+        }
+    except mysql.connector.Error as err:
+        # Error code 1062 handles duplicate entry violations in MySQL
+        if err.errno == 1062:
+            return {
+                "status": "error",
+                "message": "Email or phone number already registered!"
+            }
+        else:
+            return {
+                "status": "error",
+                "message": f"Database error: {err.msg}"
+            }
 class worker_login_credentials(BaseModel):
     phone_number:str
     worker_pass:str
@@ -103,15 +117,27 @@ def worker_signup_info(credentials:worker_signup_credentials):
     password="Hussain13620_root"
     database="KAAMKAAJ"
     table="worker_data"
-    user_data_dict={
+    worker_data_dict={
         "worker_name":credentials.worker_name,
         "phone_number":credentials.phone_number,
         "worker_pass":credentials.worker_pass
     }
-    insertdata(host,user,password,database,table,user_data_dict)
-    return{
-        "status":"recieved",
-        "message":f"Worker {credentials.worker_name} registered Successfully"
-    }
+    try:
+        insertdata(host, user, password, database, table, worker_data_dict)
+        return {
+            "status": "success",
+            "message": f"Worker {credentials.worker_name} registered successfully!"
+        }
+    except mysql.connector.Error as err:
+        if err.errno == 1062:
+            return {
+                "status": "error",
+                "message": "Phone number already registered!"
+            }
+        else:
+            return {
+                "status": "error",
+                "message": f"Database error: {err.msg}"
+            }
 
 
