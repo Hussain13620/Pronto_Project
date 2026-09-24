@@ -273,7 +273,7 @@ button {
 .services-section {
     max-width: 1150px;
     margin: 0 auto;
-    padding: 19px 0 24px;
+
 }
 
 .section-heading h2 {
@@ -294,6 +294,8 @@ button {
     gap: 16px;
 
     margin-top: 15px;
+    padding-left: 100px;
+    padding-bottom: 30px;
 }
 
 .service-card {
@@ -670,13 +672,11 @@ button {
 }
 
 .feature {
-    display: flex;
-    align-items: center;
 
     justify-content: center;
 
     gap: 12px;
-
+    
     border-right: 1px solid #dce4e9;
 }
 
@@ -973,4 +973,19 @@ button {
 
 
 
+}
+.sweeper{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.mopper{
+      padding-left: 150px;
+    padding-right: 150px;  
+}
+.vessels{
+         padding-left: 100px;
+    padding-right: 100px;   
+}
+.totaling{
+    
 }
