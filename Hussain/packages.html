@@ -32,7 +32,6 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* ---------- HEADER ---------- */
         .header {
             background: #fff;
             border-bottom: 1px solid var(--line);
@@ -71,7 +70,6 @@
         .login-btn { border: 1.5px solid var(--line); color: var(--navy); }
         .signup-btn { background: var(--green); color: #fff; }
 
-        /* ---------- HERO ---------- */
         .page-hero {
             background: linear-gradient(120deg, #F1FAF3, #E4F6EA);
             text-align: center;
@@ -102,7 +100,6 @@
             line-height: 1.6;
         }
 
-        /* ---------- PACKAGES GRID ---------- */
         .packages {
             max-width: 1200px;
             margin: 0 auto;
@@ -190,7 +187,6 @@
         .pkg-btn:hover { background: var(--green-dark); }
         .pkg-btn i { margin-left: 6px; }
 
-        /* Featured: Package 4 (All Inclusive) */
         .package-card.featured {
             background: linear-gradient(160deg, var(--green), var(--green-dark));
             border-color: var(--green);
@@ -217,13 +213,11 @@
             border-radius: 100px;
         }
 
-        /* Package 7: custom */
         .package-card.custom {
             border: 2px dashed var(--green);
             background: #fbfefc;
         }
 
-        /* ---------- FOOTER ---------- */
         .footer {
             background: var(--navy);
             padding: 34px 24px;
@@ -239,7 +233,6 @@
         .footer-links a { color: #c4cedd; font-size: 14px; font-weight: 600; }
         .footer-links a:hover { color: #fff; }
 
-        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 1000px) {
             .packages-grid { grid-template-columns: repeat(2, 1fr); }
             .nav-links { display: none; }
@@ -254,7 +247,6 @@
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="header">
     <div class="navbar">
         <a href="index.html" class="logo">
@@ -262,8 +254,8 @@
         </a>
 
         <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
+            <a href="home.html">Home</a>
+            <a href="moksh_homeservices.html">Services</a>
             <a href="#about">About</a>
             <a href="contactpage.html">Contact</a>
         </nav>
@@ -275,18 +267,15 @@
     </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="page-hero">
     <span class="tag"><i class="fa-solid fa-box-open"></i> Our Packages</span>
     <h1>Choose the Perfect <span>Package</span></h1>
     <p>Bundle your everyday household services together and save time. Pick the package that fits your home.</p>
 </section>
 
-<!-- ================= PACKAGES ================= -->
 <section class="packages">
     <div class="packages-grid">
 
-        <!-- Package 1 -->
         <div class="package-card">
             <span class="pkg-label">Package 1</span>
             <h3>Package 1</h3>
@@ -297,11 +286,10 @@
                 <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
             </ul>
             <!-- Replace XXX with your real price -->
-            <div class="price">₹XXX <small>/ visit</small></div>
+            <div class="price">amt to be added<small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- Package 2 -->
         <div class="package-card">
             <span class="pkg-label">Package 2</span>
             <h3>Package 2</h3>
@@ -311,11 +299,10 @@
                 <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
                 <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
             </ul>
-            <div class="price">₹XXX <small>/ visit</small></div>
+            <div class="price">amt to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- Package 3 -->
         <div class="package-card">
             <span class="pkg-label">Package 3</span>
             <h3>Package 3</h3>
@@ -325,11 +312,10 @@
                 <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
                 <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
             </ul>
-            <div class="price">₹XXX <small>/ visit</small></div>
+            <div class="price">amt to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- Package 4 (All Inclusive - highlighted) -->
         <div class="package-card featured">
             <span class="best-tag">BEST VALUE</span>
             <span class="pkg-label">Package 4</span>
@@ -342,11 +328,10 @@
                 <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
                 <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
             </ul>
-            <div class="price">₹XXX <small>/ visit</small></div>
+            <div class="price">amt to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- Package 5 -->
         <div class="package-card">
             <span class="pkg-label">Package 5</span>
             <h3>Package 5</h3>
@@ -360,7 +345,6 @@
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <!-- Package 6 -->
         <div class="package-card">
             <span class="pkg-label">Package 6</span>
             <h3>Package 6</h3>
@@ -370,27 +354,12 @@
                 <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
                 <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
             </ul>
-            <div class="price">₹XXX <small>/ visit</small></div>
+            <div class="price">amt to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Package 7 (custom - contents were not written in the sketch) -->
-        <div class="package-card custom">
-            <span class="pkg-label">Package 7</span>
-            <h3>Custom Package</h3>
-            <p class="sub">Build it your way</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Pick any services you need</li>
-                <li><i class="fa-solid fa-circle-check"></i> Choose your own schedule</li>
-            </ul>
-            <div class="price">Custom <small>pricing</small></div>
-            <a href="#" class="pkg-btn">Build Your Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
     </div>
 </section>
-
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
     <div class="footer-logo">
         <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="KaamKaaj">
