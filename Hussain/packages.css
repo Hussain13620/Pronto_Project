@@ -137,7 +137,6 @@ button {
     color: #087b60;
 }
 
-
 /* ================= HERO ================= */
 
 .hero {
@@ -988,4 +987,107 @@ button {
 }
 .totaling{
     
+}
+
+
+.phone-image {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+}
+
+.phone {
+    width: 145px;
+    height: 265px;
+
+    background: white;
+
+    border: 5px solid #162b40;
+    border-radius: 20px;
+
+    padding: 9px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.phone-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 6px;
+}
+
+.phone-logo {
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #078866;
+
+    font-weight: 800;
+    font-size: 10px;
+}
+
+.search-box {
+    margin-top: 15px;
+
+    padding: 7px;
+
+    background: #f4f7f8;
+
+    border-radius: 6px;
+
+    color: #9aa8b5;
+
+    font-size: 6px;
+}
+
+.phone-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.phone-services div {
+    height: 53px;
+
+    background: #f7fafb;
+
+    border-radius: 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    color: #087b60;
+}
+
+.phone-services i {
+    font-size: 16px;
+}
+
+.phone-services span {
+    font-size: 5px;
+    color: #4e6375;
+}
+
+.phone-bottom {
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 20px;
+
+    color: #8da0af;
+
+    font-size: 11px;
+}
+
+.phone-bottom i:first-child {
+    color: #078866;
 }
