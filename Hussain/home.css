@@ -1,4 +1,4 @@
-/* ================= GENERAL ================= */
+
 
 * {
     margin: 0;
@@ -26,7 +26,7 @@ button {
 }
 
 
-/* ================= HEADER ================= */
+
 
 .header {
     width: 100%;
@@ -46,7 +46,7 @@ button {
 }
 
 
-/* Logo */
+
 
 .logo {
     display: flex;
@@ -82,7 +82,7 @@ button {
 }
 
 
-/* Navigation */
+
 
 .nav-links {
     display: flex;
@@ -104,7 +104,6 @@ button {
 }
 
 
-/* Buttons */
 
 .nav-buttons {
     display: flex;
@@ -138,7 +137,7 @@ button {
 }
 
 
-/* ================= HERO ================= */
+
 
 .hero {
     max-width: 1150px;
@@ -268,7 +267,6 @@ button {
 }
 
 
-/* ================= SERVICES ================= */
 
 .services-section {
     max-width: 1150px;
@@ -374,8 +372,6 @@ button {
     color: #63758a;
 }
 
-
-/* ================= USER / WORKER ================= */
 
 .audience-section {
     max-width: 1150px;
@@ -525,7 +521,7 @@ button {
 }
 
 
-/* ================= PHONE ================= */
+
 
 .phone-image {
     position: absolute;
@@ -630,7 +626,7 @@ button {
 }
 
 
-/* ================= WORKER IMAGE ================= */
+
 
 .worker-image {
     position: absolute;
@@ -652,7 +648,7 @@ button {
 }
 
 
-/* ================= FEATURES ================= */
+
 
 .features {
     max-width: 1150px;
@@ -775,7 +771,6 @@ button {
 }
 
 
-/* ================= RESPONSIVE ================= */
 
 @media (max-width: 1000px) {
 
