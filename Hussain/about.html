@@ -12,23 +12,38 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="logo">
-            <img src="/Pronto_Project/images/kaamkaaj_logo_green_v2.svg" alt="", height="100px" width="200px">
-        </div>
+   <header class="header">
 
-        <nav>
-            <a href="home.html">Home</a>
+    <div class="navbar">
+
+        <a href="#" class="logo">
+
+            <div class="logo-text">
+                <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+            </div>
+        </a>
+
+        <nav class="nav-links">
+            <a href="home.html" class="active">Home</a>
             <a href="moksh_homeservices.html">Services</a>
-            <a href="packages.html">Packages</a>
-            <a href="about.html" class="active">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+            <a href="contactpage.html">Contact</a>
         </nav>
 
-        <a href="login.html" class="login-btn">Login</a>
-        <a href="signup.html" class="login-btn">Sign up</a>
-    </header>
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <button class="signup-btn">
+                <a href="signup.html" class="signup-link">Sign Up</a>
+            </button>
+        </div>
+
+        <button class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</header>
 
 
     <!-- HERO SECTION -->
