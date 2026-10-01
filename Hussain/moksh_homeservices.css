@@ -290,26 +290,26 @@ button {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 
     margin-top: 15px;
-    padding-left: 100px;
     padding-bottom: 30px;
 }
 
 .service-card {
-    height: 145px;
+    min-height: 100px;
+
+    padding: 16px;
 
     border: 1px solid #e1e8ed;
     border-radius: 9px;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 14px;
 
-    text-align: center;
+    text-align: left;
 
     transition: .25s;
 }
@@ -320,8 +320,8 @@ button {
 }
 
 .service-icon {
-    width: 62px;
-    height: 62px;
+    width: 56px;
+    height: 56px;
 
     border-radius: 50%;
 
@@ -329,9 +329,9 @@ button {
     align-items: center;
     justify-content: center;
 
-    font-size: 26px;
+    font-size: 24px;
 
-    margin-bottom: 9px;
+    flex-shrink: 0;
 }
 
 .service-icon.green {
@@ -364,16 +364,40 @@ button {
     color: #139ba0;
 }
 
+.service-info {
+    flex: 1;
+    min-width: 0;
+}
+
 .service-card h3 {
     font-size: 14px;
     color: #142d49;
 }
 
 .service-card p {
-    margin-top: 6px;
+    margin-top: 4px;
 
     font-size: 11px;
     color: #63758a;
+}
+
+.service-img {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 8px;
+
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.packages-card {
+    justify-content: center;
+    cursor: pointer;
+}
+
+.packages-card .service-info {
+    flex: none;
 }
 
 
@@ -793,7 +817,7 @@ button {
     }
 
     .services-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .audience-section {
@@ -934,18 +958,8 @@ button {
 @media (max-width: 450px) {
 
     .services-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 10px;
-    }
-
-    .service-card {
-        height: 135px;
-    }
-
-    .service-icon {
-        width: 52px;
-        height: 52px;
-        font-size: 21px;
     }
 
     .audience-content {
@@ -973,22 +987,4 @@ button {
 
 
 
-}
-.sweeper{
-    padding-left: 100px;
-    padding-right: 100px;
-}
-.mopper{
-      padding-left: 150px;
-    padding-right: 150px;  
-}
-.vessels{
-         padding-left: 100px;
-    padding-right: 100px;   
-}
-.totaling{
-    
-}
-.service-card{
-    
 }
