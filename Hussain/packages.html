@@ -9,240 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-        :root {
-            --green: #078b67;
-            --green-dark: #078b67;
-            --green-light: #E4F6EA;
-            --navy: #132B43;
-            --text: #1f2937;
-            --muted: #6b7280;
-            --line: #e5e9ee;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            background: #f7faf8;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        .header {
-            background: #fff;
-            border-bottom: 1px solid var(--line);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .navbar .logo img { height: 60px; display: block; }
-        .nav-links { display: flex; gap: 32px; }
-        .nav-links a {
-            font-size: 14.5px;
-            font-weight: 600;
-            color: var(--muted);
-            padding-bottom: 6px;
-            border-bottom: 2px solid transparent;
-            transition: color .15s;
-        }
-        .nav-links a:hover { color: var(--green); }
-        .nav-links a.active { color: var(--green); border-bottom-color: var(--green); }
-        .nav-buttons { display: flex; gap: 10px; }
-        .login-btn, .signup-btn {
-            padding: 9px 20px;
-            border-radius: 9px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-        .login-btn { border: 1.5px solid var(--line); color: var(--navy); }
-        .signup-btn { background: var(--green); color: #fff; }
-
-        .page-hero {
-            background: linear-gradient(120deg, #F1FAF3, #E4F6EA);
-            text-align: center;
-            padding: 60px 24px 50px;
-        }
-        .page-hero .tag {
-            display: inline-block;
-            background: #fff;
-            color: var(--green);
-            font-size: 13px;
-            font-weight: 700;
-            padding: 7px 16px;
-            border-radius: 100px;
-            margin-bottom: 18px;
-        }
-        .page-hero h1 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-        .page-hero h1 span { color: var(--green); }
-        .page-hero p {
-            color: var(--muted);
-            font-size: 16px;
-            max-width: 540px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .packages {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 56px 24px 70px;
-        }
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .package-card {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 26px 22px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transition: transform .2s, box-shadow .2s, border-color .2s;
-        }
-        .package-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 34px rgba(19, 43, 67, .10);
-            border-color: var(--green);
-        }
-
-        .pkg-label {
-            align-self: flex-start;
-            background: var(--green-light);
-            color: var(--green);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 100px;
-            margin-bottom: 14px;
-        }
-        .package-card h3 {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-        .package-card .sub {
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 18px;
-        }
-
-        .pkg-list {
-            flex: 1;
-            margin-bottom: 20px;
-            border-top: 1px dashed var(--line);
-            padding-top: 16px;
-        }
-        .pkg-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14.5px;
-            font-weight: 500;
-            padding: 8px 0;
-        }
-        .pkg-list li i { color: var(--green); font-size: 15px; }
-
-        .price {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 14px;
-        }
-        .price small { font-size: 13px; font-weight: 500; color: var(--muted); }
-
-        .pkg-btn {
-            display: block;
-            text-align: center;
-            background: var(--green);
-            color: #fff;
-            font-weight: 700;
-            font-size: 14.5px;
-            padding: 12px;
-            border-radius: 10px;
-            transition: background .15s;
-        }
-        .pkg-btn:hover { background: var(--green-dark); }
-        .pkg-btn i { margin-left: 6px; }
-
-        .package-card.featured {
-            background: linear-gradient(160deg, var(--green), var(--green-dark));
-            border-color: var(--green);
-            color: #fff;
-        }
-        .package-card.featured h3,
-        .package-card.featured .price { color: #fff; }
-        .package-card.featured .sub,
-        .package-card.featured .price small { color: rgba(255,255,255,.8); }
-        .package-card.featured .pkg-label { background: rgba(255,255,255,.2); color: #fff; }
-        .package-card.featured .pkg-list { border-top-color: rgba(255,255,255,.3); }
-        .package-card.featured .pkg-list li i { color: #fff; }
-        .package-card.featured .pkg-btn { background: #fff; color: var(--green); }
-        .package-card.featured .pkg-btn:hover { background: var(--green-light); }
-        .best-tag {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            background: #FBBF24;
-            color: #5b3d00;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 100px;
-        }
-
-        .package-card.custom {
-            border: 2px dashed var(--green);
-            background: #fbfefc;
-        }
-
-        .footer {
-            background: var(--navy);
-            padding: 34px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 18px;
-            max-width: 100%;
-        }
-        .footer-logo img { height: 60px; display: block; }
-        .footer-links { display: flex; gap: 26px; }
-        .footer-links a { color: #c4cedd; font-size: 14px; font-weight: 600; }
-        .footer-links a:hover { color: #fff; }
-
-        @media (max-width: 1000px) {
-            .packages-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav-links { display: none; }
-        }
-        @media (max-width: 600px) {
-            .packages-grid { grid-template-columns: 1fr; }
-            .page-hero h1 { font-size: 30px; }
-            .footer { flex-direction: column; text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="packages.css">
 </head>
 
 <body>
@@ -288,85 +55,116 @@
 <section class="packages">
     <div class="packages-grid">
 
-        <div class="package-card">
+        <!-- Most Popular: mandatory trio - Sweeping + Mopping + Washing Vessels -->
+        <div class="package-card featured">
+            <span class="best-tag">MOST POPULAR</span>
             <span class="pkg-label">Package 1</span>
-            <h3>Package 1</h3>
+            <h3>Essential Clean</h3>
             <p class="sub">3 services included</p>
             <ul class="pkg-list">
                 <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
                 <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
                 <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
             </ul>
-            <!-- Replace XXX with your real price -->
-            <div class="price">amt to be added<small>/ visit</small></div>
+            <div class="price">Amount to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="package-card">
             <span class="pkg-label">Package 2</span>
-            <h3>Package 2</h3>
+            <h3>Laundry Care</h3>
             <p class="sub">3 services included</p>
             <ul class="pkg-list">
                 <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
                 <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
-                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
             </ul>
-            <div class="price">amt to be added <small>/ visit</small></div>
+            <div class="price">Amount to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="package-card">
             <span class="pkg-label">Package 3</span>
-            <h3>Package 3</h3>
+            <h3>Kitchen &amp; Dining</h3>
             <p class="sub">3 services included</p>
             <ul class="pkg-list">
+                <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
+                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
                 <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
             </ul>
-            <div class="price">amt to be added <small>/ visit</small></div>
+            <div class="price">Amount to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="package-card featured">
-            <span class="best-tag">BEST VALUE</span>
+        <div class="package-card">
             <span class="pkg-label">Package 4</span>
-            <h3>All Inclusive</h3>
-            <p class="sub">Everything in one package</p>
+            <h3>Deep Clean</h3>
+            <p class="sub">4 services included</p>
             <ul class="pkg-list">
                 <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
                 <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
                 <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
-                <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
-                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
+                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
             </ul>
-            <div class="price">amt to be added <small>/ visit</small></div>
+            <div class="price">Amount to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="package-card">
             <span class="pkg-label">Package 5</span>
-            <h3>Package 5</h3>
+            <h3>Fresh Home</h3>
             <p class="sub">3 services included</p>
             <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
                 <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
+                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
             </ul>
-            <div class="price">₹XXX <small>/ visit</small></div>
+            <div class="price">Amount to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <div class="package-card">
             <span class="pkg-label">Package 6</span>
-            <h3>Package 6</h3>
+            <h3>Wardrobe &amp; Linen</h3>
             <p class="sub">3 services included</p>
             <ul class="pkg-list">
                 <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
                 <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
-                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
             </ul>
-            <div class="price">amt to be added <small>/ visit</small></div>
+            <div class="price">Amount to be added <small>/ visit</small></div>
+            <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="package-card">
+            <span class="pkg-label">Package 7</span>
+            <h3>Indoor &amp; Outdoor</h3>
+            <p class="sub">3 services included</p>
+            <ul class="pkg-list">
+                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
+                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
+            </ul>
+            <div class="price">Amount to be added <small>/ visit</small></div>
+            <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- All Inclusive: every service -->
+        <div class="package-card custom">
+            <span class="pkg-label">Package 8</span>
+            <h3>All Inclusive</h3>
+            <p class="sub">Everything in one package</p>
+            <ul class="pkg-list">
+                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
+                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
+                <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
+                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
+                <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
+                <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
+            </ul>
+            <div class="price">Amount to be added <small>/ visit</small></div>
             <a href="#" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
