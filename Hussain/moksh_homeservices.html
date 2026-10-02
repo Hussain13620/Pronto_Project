@@ -48,13 +48,42 @@
                 <a href="signup.html" class="signup-btn">Sign Up</a>
             </div>
 
-            <button class="menu-btn">
+            <button class="menu-btn" id="menuBtn">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
         </div>
 
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="home.html">Home</a>
+            <a href="moksh_homeservices.html" class="active">Services</a>
+            <a href="about.html">About</a>
+            <a href="contactpage.html">Contact</a>
+            <div class="mobile-auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+
     </header>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 
 
 
