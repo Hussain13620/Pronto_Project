@@ -188,6 +188,19 @@
         </div>
 
     </footer>
+
+    <!-- Booking Confirmation Popup -->
+    <div id="confirmation-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your service has been successfully booked.</p>
+            <button id="close-popup-btn" class="close-btn">Close</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -210,6 +223,29 @@
                     const checkbox = document.querySelector(`input[name="services"][value="${service}"]`);
                     if (checkbox) {
                         checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Handle form submission
+            const form = document.querySelector('form');
+            const popup = document.getElementById('confirmation-popup');
+            const closePopupBtn = document.getElementById('close-popup-btn');
+
+            if (form && popup && closePopupBtn) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent actual submission
+                    popup.classList.add('active');
+                });
+
+                closePopupBtn.addEventListener('click', function() {
+                    popup.classList.remove('active');
+                });
+
+                // Close popup when clicking outside
+                window.addEventListener('click', function(e) {
+                    if (e.target === popup) {
+                        popup.classList.remove('active');
                     }
                 });
             }
