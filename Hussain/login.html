@@ -253,6 +253,12 @@ async def handle_worker_login(event):
             status_box.style.display = "block"
             js.document.getElementById("w-phone").value = ""
             js.document.getElementById("w-password").value = ""
+            # Store login state in localStorage
+            js.window.localStorage.setItem("loggedIn", "true")
+            js.window.localStorage.setItem("userName", result.get("message", ""))
+            js.window.localStorage.setItem("userType", "worker")
+            # Redirect to home page after a short delay
+            js.window.setTimeout(js.eval("() => window.location.href = 'home.html'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
@@ -286,6 +292,12 @@ async def handle_user_login(event):
             status_box.style.display = "block"
             js.document.getElementById("u-email").value = ""
             js.document.getElementById("u-password").value = ""
+            # Store login state in localStorage
+            js.window.localStorage.setItem("loggedIn", "true")
+            js.window.localStorage.setItem("userName", result.get("message", ""))
+            js.window.localStorage.setItem("userType", "user")
+            # Redirect to home page after a short delay
+            js.window.setTimeout(js.eval("() => window.location.href = 'home.html'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"

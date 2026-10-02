@@ -17,6 +17,8 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="moksh_homeservices.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 
 <body>
@@ -99,7 +101,7 @@
     <div class="services-grid">
 
         <!-- Row 1 -->
-        <div class="service-card">
+        <div class="service-card" data-service="sweeping">
             <div class="service-icon green">
                 <i class="fa-solid fa-broom"></i>
             </div>
@@ -110,7 +112,7 @@
             <img class="service-img" src="/Pronto_Project/images/new service images/sweeping.webp" alt="Sweeping">
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-service="mopping">
             <div class="service-icon blue">
                 <i class="fa-solid fa-broom"></i>
             </div>
@@ -121,7 +123,7 @@
             <img class="service-img" src="/Pronto_Project/images/new service images/mopping.webp" alt="Mopping">
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-service="washing_vessels">
             <div class="service-icon yellow">
                 <i class="fa-solid fa-soap"></i>
             </div>
@@ -133,7 +135,7 @@
         </div>
 
         <!-- Row 2 -->
-        <div class="service-card">
+        <div class="service-card" data-service="laundry">
             <div class="service-icon pink">
                 <i class="fa-solid fa-shirt"></i>
             </div>
@@ -144,7 +146,7 @@
             <img class="service-img" src="/Pronto_Project/images/new service images/laundry.webp" alt="Laundry">
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-service="dusting">
             <div class="service-icon green">
                 <i class="fa-solid fa-broom"></i>
             </div>
@@ -154,7 +156,7 @@
             <img class="service-img" src="/Pronto_Project/images/new service images/dusting.webp" alt="Dusting">
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-service="balcony_cleaning">
             <div class="service-icon cyan">
                 <i class="fa-solid fa-sun"></i>
             </div>
@@ -165,7 +167,7 @@
         </div>
 
         <!-- Row 3 -->
-        <div class="service-card">
+        <div class="service-card" data-service="ironing_and_folding">
             <div class="service-icon blue">
                 <i class="fa-solid fa-shirt"></i>
             </div>
@@ -175,7 +177,7 @@
             <img class="service-img" src="/Pronto_Project/images/new service images/ironing.webp" alt="Ironing and Folding">
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-service="kitchen_prep">
             <div class="service-icon purple">
                 <i class="fa-solid fa-utensils"></i>
             </div>
@@ -282,5 +284,62 @@
 </footer>
 
 
+
+<script type="py">
+import js
+from pyodide.ffi import create_proxy
+
+def is_logged_in():
+    """Check if the user is logged in by reading localStorage."""
+    return js.window.localStorage.getItem("loggedIn") == "true"
+
+def handle_service_click(event):
+    """When a service card is clicked, redirect to booking_submission with service pre-selected."""
+    target = event.target
+    card = None
+    el = target
+    for _ in range(10):
+        if el is None:
+            break
+        if hasattr(el, 'classList') and el.classList and el.classList.contains("service-card"):
+            card = el
+            break
+        el = el.parentElement
+    
+    if card and card.getAttribute("data-service"):
+        service_name = card.getAttribute("data-service")
+        js.window.location.href = f"booking_submission.html?service={service_name}"
+
+# Create a proxy so the Python function works as a JS callback
+click_proxy = create_proxy(handle_service_click)
+
+# Attach click handlers to all service cards with data-service attribute
+cards = js.document.querySelectorAll(".service-card[data-service]")
+for i in range(cards.length):
+    cards[i].style.cursor = "pointer"
+    cards[i].addEventListener("click", click_proxy)
+
+# Update nav buttons based on login state
+def handle_logout(event):
+    event.preventDefault()
+    js.window.localStorage.removeItem("loggedIn")
+    js.window.localStorage.removeItem("userName")
+    js.window.localStorage.removeItem("userType")
+    js.window.location.reload()
+
+def update_nav():
+    if is_logged_in():
+        nav_buttons = js.document.querySelector(".nav-buttons")
+        if nav_buttons:
+            nav_buttons.innerHTML = '<a href="#" id="logout-btn" class="signup-btn">Logout</a>'
+            logout_btn = js.document.getElementById("logout-btn")
+            if logout_btn:
+                logout_proxy = create_proxy(handle_logout)
+                logout_btn.addEventListener("click", logout_proxy)
+
+update_nav()
+</script>
+
 </body>
+
 </html>

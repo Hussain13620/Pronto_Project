@@ -15,8 +15,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="booking_submission.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <style>
-        
+
     </style>
 </head>
 
@@ -192,6 +194,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             const urlParams = new URLSearchParams(window.location.search);
             const packageId = urlParams.get('package');
+            const serviceId = urlParams.get('service');
 
             const packageServices = {
                 '1': ['sweeping', 'mopping', 'washing_vessels'],
@@ -204,6 +207,7 @@
                 '8': ['sweeping', 'mopping', 'washing_vessels', 'laundry', 'dusting', 'balcony_cleaning', 'ironing_and_folding', 'kitchen_prep']
             };
 
+            // Handle package pre-selection
             if (packageId && packageServices[packageId]) {
                 const servicesToSelect = packageServices[packageId];
                 servicesToSelect.forEach(service => {
@@ -213,7 +217,44 @@
                     }
                 });
             }
+
+            // Handle single service pre-selection from services page
+            if (serviceId) {
+                const checkbox = document.querySelector(`input[name="services"][value="${serviceId}"]`);
+                if (checkbox) {
+                    checkbox.checked = true;
+                }
+            }
         });
     </script>
+
+    <script type="py">
+import js
+from pyodide.ffi import create_proxy
+
+def is_logged_in():
+    return js.window.localStorage.getItem("loggedIn") == "true"
+
+def handle_logout(event):
+    event.preventDefault()
+    js.window.localStorage.removeItem("loggedIn")
+    js.window.localStorage.removeItem("userName")
+    js.window.localStorage.removeItem("userType")
+    js.window.location.reload()
+
+def update_nav():
+    if is_logged_in():
+        nav_buttons = js.document.querySelector(".nav-buttons")
+        if nav_buttons:
+            nav_buttons.innerHTML = '<a href="#" id="logout-btn" class="signup-btn">Logout</a>'
+            logout_btn = js.document.getElementById("logout-btn")
+            if logout_btn:
+                logout_proxy = create_proxy(handle_logout)
+                logout_btn.addEventListener("click", logout_proxy)
+
+update_nav()
+    </script>
+
 </body>
+
 </html>

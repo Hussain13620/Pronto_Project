@@ -8,6 +8,8 @@
     <title>About Us | KaamKaaj</title>
 
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 
 <body>
@@ -159,3 +161,30 @@
             </p>
 
             <p>
+
+<script type="py">
+import js
+from pyodide.ffi import create_proxy
+
+def is_logged_in():
+    return js.window.localStorage.getItem("loggedIn") == "true"
+
+def handle_logout(event):
+    event.preventDefault()
+    js.window.localStorage.removeItem("loggedIn")
+    js.window.localStorage.removeItem("userName")
+    js.window.localStorage.removeItem("userType")
+    js.window.location.reload()
+
+def update_nav():
+    if is_logged_in():
+        nav_buttons = js.document.querySelector(".nav-buttons")
+        if nav_buttons:
+            nav_buttons.innerHTML = '<a href="#" id="logout-btn" class="signup-btn">Logout</a>'
+            logout_btn = js.document.getElementById("logout-btn")
+            if logout_btn:
+                logout_proxy = create_proxy(handle_logout)
+                logout_btn.addEventListener("click", logout_proxy)
+
+update_nav()
+</script>
