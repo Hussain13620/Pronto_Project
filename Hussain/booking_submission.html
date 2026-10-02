@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAAMKAAJ - Booking Submission</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="booking_submission.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="navbar">
+
+            <a href="home.html" class="logo">
+                <div class="logo-text">
+                    <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="moksh_homeservices.html">Services</a>
+                <a href="home.html#about">About</a>
+                <a href="contactpage.html">Contact</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+    <section class="booking-section">
+        <h2>Book a Service</h2>
+        <form action="#" method="POST">
+
+            <div class="form-group">
+                <label>Select Services:</label>
+                <div class="services-grid-selectable">
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="sweeping">
+                        <div class="service-card-content">
+                            <div class="service-icon green">
+                                <i class="fa-solid fa-broom"></i>
+                            </div>
+                            <h3>Sweeping</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="mopping">
+                        <div class="service-card-content">
+                            <div class="service-icon blue">
+                                <i class="fa-solid fa-broom"></i>
+                            </div>
+                            <h3>Mopping</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="washing_vessels">
+                        <div class="service-card-content">
+                            <div class="service-icon yellow">
+                                <i class="fa-solid fa-soap"></i>
+                            </div>
+                            <h3>Washing Vessels</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="laundry">
+                        <div class="service-card-content">
+                            <div class="service-icon pink">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <h3>Laundry</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="dusting">
+                        <div class="service-card-content">
+                            <div class="service-icon green">
+                                <i class="fa-solid fa-feather"></i>
+                            </div>
+                            <h3>Dusting</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="balcony_cleaning">
+                        <div class="service-card-content">
+                            <div class="service-icon cyan">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <h3>Balcony Cleaning</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="ironing_and_folding">
+                        <div class="service-card-content">
+                            <div class="service-icon blue">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <h3>Ironing and Folding</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                    <label class="service-option">
+                        <input type="checkbox" name="services" value="kitchen_prep">
+                        <div class="service-card-content">
+                            <div class="service-icon purple">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <h3>Kitchen Prep</h3>
+                            <div class="check-indicator"><i class="fa-solid fa-circle-check"></i></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Select Property Type:</label>
+                <div class="property-type-list">
+                    <input type="radio" id="prop_1bhk" name="property_type" value="1_bhk">
+                    <label for="prop_1bhk">1 BHK</label>
+                    <input type="radio" id="prop_2bhk" name="property_type" value="2_bhk">
+                    <label for="prop_2bhk">2 BHK</label>
+                    <input type="radio" id="prop_3bhk" name="property_type" value="3_bhk">
+                    <label for="prop_3bhk">3 BHK</label>
+                    <input type="radio" id="prop_4bhk" name="property_type" value="4_bhk">
+                    <label for="prop_4bhk">4 BHK</label>
+                    <input type="radio" id="prop_penthouse" name="property_type" value="penthouse">
+                    <label for="prop_penthouse">Penthouse</label>
+                    <input type="radio" id="prop_villa" name="property_type" value="villa">
+                    <label for="prop_villa">Villa</label>
+                    <input type="radio" id="prop_studio" name="property_type" value="studio">
+                    <label for="prop_studio">Studio Apt</label>
+                    <input type="radio" id="prop_other" name="property_type" value="other">
+                    <label for="prop_other">Other</label>
+                </div>
+            </div>
+
+            <button type="submit" class="confirm-btn">Confirm Booking</button>
+
+        </form>
+    </section>
+
+    <footer class="footer" id="contact">
+
+        <div class="footer-logo">
+            <div>
+                <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="" height="70px" width="200px">
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="home.html" class="general">Home</a>
+            <a href="home.html#services" class="general">Services</a>
+            <a href="home.html#about" class="general">About</a>
+            <a href="home.html#contact" class="general">Contact</a>
+
+        </div>
+
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const packageId = urlParams.get('package');
+
+            const packageServices = {
+                '1': ['sweeping', 'mopping', 'washing_vessels'],
+                '2': ['laundry', 'ironing_and_folding', 'dusting'],
+                '3': ['kitchen_prep', 'washing_vessels', 'sweeping'],
+                '4': ['sweeping', 'mopping', 'dusting', 'balcony_cleaning'],
+                '5': ['mopping', 'dusting', 'balcony_cleaning'],
+                '6': ['laundry', 'ironing_and_folding', 'washing_vessels'],
+                '7': ['balcony_cleaning', 'sweeping', 'kitchen_prep'],
+                '8': ['sweeping', 'mopping', 'washing_vessels', 'laundry', 'dusting', 'balcony_cleaning', 'ironing_and_folding', 'kitchen_prep']
+            };
+
+            if (packageId && packageServices[packageId]) {
+                const servicesToSelect = packageServices[packageId];
+                servicesToSelect.forEach(service => {
+                    const checkbox = document.querySelector(`input[name="services"][value="${service}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
