@@ -153,11 +153,9 @@ button {
 
 .hero-content {
     padding: 42px 30px 30px 5px;
-    background: linear-gradient(
-        110deg,
-        #eefaf7,
-        #ffffff
-    );
+    background: linear-gradient(110deg,
+            #eefaf7,
+            #ffffff);
 }
 
 .hero-badge {
@@ -316,7 +314,7 @@ button {
 
 .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
 }
 
 .service-icon {
@@ -425,19 +423,15 @@ button {
 }
 
 .user-card {
-    background: linear-gradient(
-        110deg,
-        #effbf7,
-        #e9f7f3
-    );
+    background: linear-gradient(110deg,
+            #effbf7,
+            #e9f7f3);
 }
 
 .worker-card {
-    background: linear-gradient(
-        110deg,
-        #edf6ff,
-        #e8f3ff
-    );
+    background: linear-gradient(110deg,
+            #edf6ff,
+            #e8f3ff);
 }
 
 
@@ -478,7 +472,7 @@ button {
     color: #142e4a;
 }
 
-.audience-content > p {
+.audience-content>p {
     margin-top: 10px;
 
     font-size: 12px;
@@ -570,7 +564,7 @@ button {
 
     padding: 9px;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
 }
 
 .phone-top {
@@ -700,7 +694,7 @@ button {
     justify-content: center;
 
     gap: 12px;
-    
+
     border-right: 1px solid #dce4e9;
 }
 

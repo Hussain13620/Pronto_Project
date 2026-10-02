@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,13 @@
 
     <link rel="stylesheet" href="style.css">
 
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-   
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="moksh_homeservices.css">
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
@@ -25,267 +25,271 @@
 
 
 
-<header class="header">
+    <header class="header">
 
-    <div class="navbar">
+        <div class="navbar">
 
-        <a href="#" class="logo">
+            <a href="#" class="logo">
 
-            <div class="logo-text">
-                <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+                <div class="logo-text">
+                    <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="moksh_homeservices.html" class="active">Services</a>
+                <a href="about.html">About</a>
+                <a href="contactpage.html">Contact</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
             </div>
-        </a>
 
-        <nav class="nav-links">
-            <a href="home.html" >Home</a>
-            <a href="moksh_homeservices.html" class="active">Services</a>
-            <a href="about.html">About</a>
-            <a href="contactpage.html">Contact</a>
-        </nav>
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-        <div class="nav-buttons">
-            <a href="login.html" class="login-btn">Login</a>
-            <a href="signup.html" class="signup-btn">Sign Up</a>
         </div>
 
-        <button class="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-    </div>
-
-</header>
+    </header>
 
 
 
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-content">
-
-
-        <h1>
-            Our Services<br>
-        </h1>
-
-        <p>
-            Reliable and skilled household help-
-            <br>
-            for a cleaner, safer and ha ppier home
-        </p>
-    </div>
-
-    <div class="hero-image">
-
-       <img src="../images/services/01_hero_cleaning.png" alt="" >
-
-    </div>
-
-</section>
+        <div class="hero-content">
 
 
+            <h1>
+                Our Services<br>
+            </h1>
 
-
-<section class="services-section" id="services">
-
-    <div class="section-heading">
-        <h2>Explore our Services</h2>
-
-        <p>
-            Choose from a wide range of household services,
-            all at your convenience.
-        </p>
-    </div>
-
-
-    <div class="services-grid">
-
-        <!-- Row 1 -->
-        <div class="service-card" data-service="sweeping">
-            <div class="service-icon green">
-                <i class="fa-solid fa-broom"></i>
-            </div>
-            <div class="service-info">
-                <h3>Sweeping</h3>
-                <p>Floor cleaning</p>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/sweeping.webp" alt="Sweeping">
+            <p>
+                Reliable and skilled household help-
+                <br>
+                for a cleaner, safer and ha ppier home
+            </p>
         </div>
 
-        <div class="service-card" data-service="mopping">
-            <div class="service-icon blue">
-                <i class="fa-solid fa-broom"></i>
-            </div>
-            <div class="service-info">
-                <h3>Mopping</h3>
-                <p>Floor cleaning, dusting</p>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/mopping.webp" alt="Mopping">
+        <div class="hero-image">
+
+            <img src="../images/services/01_hero_cleaning.png" alt="">
+
         </div>
 
-        <div class="service-card" data-service="washing_vessels">
-            <div class="service-icon yellow">
-                <i class="fa-solid fa-soap"></i>
-            </div>
-            <div class="service-info">
-                <h3>Washing Vessels</h3>
-                <p>Utensils cleaning</p>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/kitchen.webp" alt="Washing Vessels">
+    </section>
+
+
+
+
+    <section class="services-section" id="services">
+
+        <div class="section-heading">
+            <h2>Explore our Services</h2>
+
+            <p>
+                Choose from a wide range of household services,
+                all at your convenience.
+            </p>
         </div>
 
-        <!-- Row 2 -->
-        <div class="service-card" data-service="laundry">
-            <div class="service-icon pink">
-                <i class="fa-solid fa-shirt"></i>
+
+        <div class="services-grid">
+
+            <!-- Row 1 -->
+            <div class="service-card" data-service="sweeping">
+                <div class="service-icon green">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Sweeping</h3>
+                    <p>Floor cleaning</p>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/sweeping.webp" alt="Sweeping">
             </div>
-            <div class="service-info">
-                <h3>Laundry</h3>
-                <p>Washing</p>
+
+            <div class="service-card" data-service="mopping">
+                <div class="service-icon blue">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Mopping</h3>
+                    <p>Floor cleaning, dusting</p>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/mopping.webp" alt="Mopping">
             </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/laundry.webp" alt="Laundry">
+
+            <div class="service-card" data-service="washing_vessels">
+                <div class="service-icon yellow">
+                    <i class="fa-solid fa-soap"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Washing Vessels</h3>
+                    <p>Utensils cleaning</p>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/kitchen.webp"
+                    alt="Washing Vessels">
+            </div>
+
+            <!-- Row 2 -->
+            <div class="service-card" data-service="laundry">
+                <div class="service-icon pink">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Laundry</h3>
+                    <p>Washing</p>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/laundry.webp" alt="Laundry">
+            </div>
+
+            <div class="service-card" data-service="dusting">
+                <div class="service-icon green">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Dusting</h3>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/dusting.webp" alt="Dusting">
+            </div>
+
+            <div class="service-card" data-service="balcony_cleaning">
+                <div class="service-icon cyan">
+                    <i class="fa-solid fa-sun"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Balcony Cleaning</h3>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/balcony.webp"
+                    alt="Balcony Cleaning">
+            </div>
+
+            <!-- Row 3 -->
+            <div class="service-card" data-service="ironing_and_folding">
+                <div class="service-icon blue">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Ironing and Folding</h3>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/ironing.webp"
+                    alt="Ironing and Folding">
+            </div>
+
+            <div class="service-card" data-service="kitchen_prep">
+                <div class="service-icon purple">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Kitchen Prep</h3>
+                </div>
+                <img class="service-img" src="/Pronto_Project/images/new service images/kitchen prep.webp"
+                    alt="Kitchen Prep">
+            </div>
+
+            <a href="packages.html" class="service-card packages-card">
+                <div class="service-icon yellow">
+                    <i class="fa-solid fa-greater-than" style="color: rgb(5, 5, 5);"></i>
+                </div>
+                <div class="service-info">
+                    <h3>Packages</h3>
+                    <p>View bundled offers</p>
+                </div>
+            </a>
+
         </div>
 
-        <div class="service-card" data-service="dusting">
-            <div class="service-icon green">
-                <i class="fa-solid fa-broom"></i>
-            </div>
-            <div class="service-info">
-                <h3>Dusting</h3>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/dusting.webp" alt="Dusting">
-        </div>
+    </section>
 
-        <div class="service-card" data-service="balcony_cleaning">
-            <div class="service-icon cyan">
-                <i class="fa-solid fa-sun"></i>
-            </div>
-            <div class="service-info">
-                <h3>Balcony Cleaning</h3>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/balcony.webp" alt="Balcony Cleaning">
-        </div>
-
-        <!-- Row 3 -->
-        <div class="service-card" data-service="ironing_and_folding">
-            <div class="service-icon blue">
-                <i class="fa-solid fa-shirt"></i>
-            </div>
-            <div class="service-info">
-                <h3>Ironing and Folding</h3>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/ironing.webp" alt="Ironing and Folding">
-        </div>
-
-        <div class="service-card" data-service="kitchen_prep">
-            <div class="service-icon purple">
-                <i class="fa-solid fa-utensils"></i>
-            </div>
-            <div class="service-info">
-                <h3>Kitchen Prep</h3>
-            </div>
-            <img class="service-img" src="/Pronto_Project/images/new service images/kitchen prep.webp" alt="Kitchen Prep">
-        </div>
-
-        <a href="packages.html" class="service-card packages-card">
-            <div class="service-icon yellow">
-                <i class="fa-solid fa-greater-than" style="color: rgb(5, 5, 5);"></i>
-            </div>
-            <div class="service-info">
-                <h3>Packages</h3>
-                <p>View bundled offers</p>
-            </div>
-        </a>
-
-    </div>
-
-</section>
-
-<div>
-
-</div>
-
-
-
-<section class="features">
-
-    <div class="feature">
-
-        <div class="feature-icon">
-            <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" width="200px">
-        </div>
+    <div>
 
     </div>
 
 
-    <div class="feature">
 
-        <div class="feature-icon">
-            <i class="fa-solid fa-bolt"></i>
-        </div>
-
-        <div>
-            <strong>Quick Booking</strong>
-            <p>Get help in minutes</p>
-        </div>
-
-    </div>
-
-
-    <div class="feature">
-
-        <div class="feature-icon">
-            <i class="fa-solid fa-location-dot"></i>
-        </div>
-
-        <div>
-            <strong>Local Support</strong>
-            <p>Service in your area</p>
-        </div>
-
-    </div>
+    <section class="features">
 
         <div class="feature">
 
-        <div class="feature-icon">
-            <i class="fa-solid fa-shield-halved"></i>
+            <div class="feature-icon">
+                <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" width="200px">
+            </div>
+
         </div>
 
-        <div>
-            <strong>Verified Workers</strong>
-            <p>Background checked for safety</p>
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+                <strong>Quick Booking</strong>
+                <p>Get help in minutes</p>
+            </div>
+
         </div>
 
-    </div>
-        
 
-</section>
+        <div class="feature">
 
+            <div class="feature-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
 
-<footer class="footer" id="contact">
+            <div>
+                <strong>Local Support</strong>
+                <p>Service in your area</p>
+            </div>
 
-    <div class="footer-logo">
-        <div>
-            <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="" height="70px" height="200px">
         </div>
 
-    </div>
+        <div class="feature">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <strong>Verified Workers</strong>
+                <p>Background checked for safety</p>
+            </div>
+
+        </div>
 
 
-    <div class="footer-links">
-
-        <a href="home.html" class="general">Home</a>
-        <a href="moksh_homeservices.html" class="general">Services</a>
-        <a href="about.html" class="general">About</a>
-        <a href="contactpage.html" class="general">Contact</a>
-
-    </div>
-
-</footer>
+    </section>
 
 
+    <footer class="footer" id="contact">
 
-<script type="py">
+        <div class="footer-logo">
+            <div>
+                <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="" height="70px" height="200px">
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="home.html" class="general">Home</a>
+            <a href="moksh_homeservices.html" class="general">Services</a>
+            <a href="about.html" class="general">About</a>
+            <a href="contactpage.html" class="general">Contact</a>
+
+        </div>
+
+    </footer>
+
+
+
+    <script type="py">
 import js
 from pyodide.ffi import create_proxy
 

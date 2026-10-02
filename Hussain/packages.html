@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,174 +15,183 @@
 
 <body>
 
-<header class="header">
+    <header class="header">
 
-    <div class="navbar">
+        <div class="navbar">
 
-        <a href="#" class="logo">
+            <a href="#" class="logo">
 
-            <div class="logo-text">
-                <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+                <div class="logo-text">
+                    <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="moksh_homeservices.html" class="active">Services</a>
+                <a href="about.html">About</a>
+                <a href="contactpage.html">Contact</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
             </div>
-        </a>
 
-        <nav class="nav-links">
-            <a href="home.html" >Home</a>
-            <a href="moksh_homeservices.html" class="active">Services</a>
-            <a href="about.html">About</a>
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <section class="page-hero">
+        <span class="tag"><i class="fa-solid fa-box-open"></i> Our Packages</span>
+        <h1>Choose the Perfect <span>Package</span></h1>
+        <p>Bundle your everyday household services together and save time. Pick the package that fits your home.</p>
+    </section>
+
+    <section class="packages">
+        <div class="packages-grid">
+
+            <!-- Most Popular: mandatory trio - Sweeping + Mopping + Washing Vessels -->
+            <div class="package-card featured">
+                <span class="best-tag">MOST POPULAR</span>
+                <span class="pkg-label">Package 1</span>
+                <h3>Essential Clean</h3>
+                <p class="sub">3 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=1" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="package-card">
+                <span class="pkg-label">Package 2</span>
+                <h3>Laundry Care</h3>
+                <p class="sub">3 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=2" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="package-card">
+                <span class="pkg-label">Package 3</span>
+                <h3>Kitchen &amp; Dining</h3>
+                <p class="sub">3 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=3" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="package-card">
+                <span class="pkg-label">Package 4</span>
+                <h3>Deep Clean</h3>
+                <p class="sub">4 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=4" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="package-card">
+                <span class="pkg-label">Package 5</span>
+                <h3>Fresh Home</h3>
+                <p class="sub">3 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=5" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="package-card">
+                <span class="pkg-label">Package 6</span>
+                <h3>Wardrobe &amp; Linen</h3>
+                <p class="sub">3 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=6" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="package-card">
+                <span class="pkg-label">Package 7</span>
+                <h3>Indoor &amp; Outdoor</h3>
+                <p class="sub">3 services included</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=7" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- All Inclusive: every service -->
+            <div class="package-card custom">
+                <span class="pkg-label">Package 8</span>
+                <h3>All Inclusive</h3>
+                <p class="sub">Everything in one package</p>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
+                </ul>
+                <div class="price">Amount to be added <small>/ visit</small></div>
+                <a href="booking_submission.html?package=8" class="pkg-btn">Choose Package <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="KaamKaaj">
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="packages.html">Packages</a>
+            <a href="#about">About</a>
             <a href="contactpage.html">Contact</a>
-        </nav>
-
-        <div class="nav-buttons">
-            <a href="login.html" class="login-btn">Login</a>
-            <a href="signup.html" class="signup-btn">Sign Up</a>
         </div>
-
-        <button class="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-    </div>
-
-</header>
-
-
-<section class="page-hero">
-    <span class="tag"><i class="fa-solid fa-box-open"></i> Our Packages</span>
-    <h1>Choose the Perfect <span>Package</span></h1>
-    <p>Bundle your everyday household services together and save time. Pick the package that fits your home.</p>
-</section>
-
-<section class="packages">
-    <div class="packages-grid">
-
-        <!-- Most Popular: mandatory trio - Sweeping + Mopping + Washing Vessels -->
-        <div class="package-card featured">
-            <span class="best-tag">MOST POPULAR</span>
-            <span class="pkg-label">Package 1</span>
-            <h3>Essential Clean</h3>
-            <p class="sub">3 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=1" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="package-card">
-            <span class="pkg-label">Package 2</span>
-            <h3>Laundry Care</h3>
-            <p class="sub">3 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
-                <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
-                <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=2" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="package-card">
-            <span class="pkg-label">Package 3</span>
-            <h3>Kitchen &amp; Dining</h3>
-            <p class="sub">3 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
-                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
-                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=3" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="package-card">
-            <span class="pkg-label">Package 4</span>
-            <h3>Deep Clean</h3>
-            <p class="sub">4 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
-                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=4" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="package-card">
-            <span class="pkg-label">Package 5</span>
-            <h3>Fresh Home</h3>
-            <p class="sub">3 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
-                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=5" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="package-card">
-            <span class="pkg-label">Package 6</span>
-            <h3>Wardrobe &amp; Linen</h3>
-            <p class="sub">3 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
-                <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
-                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=6" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="package-card">
-            <span class="pkg-label">Package 7</span>
-            <h3>Indoor &amp; Outdoor</h3>
-            <p class="sub">3 services included</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
-                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=7" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- All Inclusive: every service -->
-        <div class="package-card custom">
-            <span class="pkg-label">Package 8</span>
-            <h3>All Inclusive</h3>
-            <p class="sub">Everything in one package</p>
-            <ul class="pkg-list">
-                <li><i class="fa-solid fa-circle-check"></i> Sweeping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Mopping</li>
-                <li><i class="fa-solid fa-circle-check"></i> Washing Vessels</li>
-                <li><i class="fa-solid fa-circle-check"></i> Laundry</li>
-                <li><i class="fa-solid fa-circle-check"></i> Dusting</li>
-                <li><i class="fa-solid fa-circle-check"></i> Balcony Cleaning</li>
-                <li><i class="fa-solid fa-circle-check"></i> Ironing and Folding</li>
-                <li><i class="fa-solid fa-circle-check"></i> Kitchen Prep</li>
-            </ul>
-            <div class="price">Amount to be added <small>/ visit</small></div>
-            <a href="booking_submission.html?package=8" class="pkg-btn">Choose Package <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-    </div>
-</section>
-<footer class="footer">
-    <div class="footer-logo">
-        <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="KaamKaaj">
-    </div>
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="packages.html">Packages</a>
-        <a href="#about">About</a>
-        <a href="contactpage.html">Contact</a>
-    </div>
-</footer>
+    </footer>
 
 </body>
+
 </html>
