@@ -564,3 +564,10 @@ footer p {
     font-size: 15px;
     
 }
+.explore-btn{
+    background: #159447;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+}
