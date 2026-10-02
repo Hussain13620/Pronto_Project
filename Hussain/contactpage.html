@@ -47,21 +47,22 @@
         </header>
 
         <main class="container">
-            <form class="form">
+            <form class="form" id="contact-form">
                 <div class="form-content">
                     <h1>CONTACT US</h1>
                     
                     <label for="name">Name</label>
-                    <input id="name" type="text" placeholder="Enter your name">
+                    <input id="name" type="text" placeholder="Enter your name" required>
                     
-                    <label for="email">Phone no</label>
-                    <input id="email" type="tel" placeholder="Enter your phone number">
+                    <label for="phone">Phone no</label>
+                    <input id="phone" type="tel" placeholder="Enter your phone number" required>
                     
                     <label for="problem">Describe your problem</label>
-                    <textarea id="problem" placeholder="Enter your problem your facing"></textarea>
+                    <textarea id="problem" placeholder="Enter your problem your facing" required></textarea>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" id="contact-submit-btn">Submit</button>
             </form>
+            <div id="status-message" style="display:none; max-width: 500px; margin: 15px auto;"></div>
         </main>
 
 
@@ -107,6 +108,9 @@
 
 <script type="py">
 import js
+import json
+from pyscript import when
+from pyodide.http import pyfetch
 from pyodide.ffi import create_proxy
 
 def is_logged_in():
@@ -139,6 +143,78 @@ def update_nav():
                 mobile_logout.addEventListener("click", mobile_proxy)
 
 update_nav()
+
+@when("click", "#contact-submit-btn")
+async def handle_contact_submit(event):
+    event.preventDefault()
+    name_val = js.document.getElementById("name").value.strip()
+    phone_elem = js.document.getElementById("phone") or js.document.getElementById("email")
+    phone_val = phone_elem.value.strip() if phone_elem else ""
+    problem_val = js.document.getElementById("problem").value.strip()
+
+    status_box = js.document.getElementById("status-message")
+
+    if not name_val or not phone_val or not problem_val:
+        if status_box:
+            status_box.style.backgroundColor = "#dc3545"
+            status_box.style.color = "white"
+            status_box.style.padding = "10px 15px"
+            status_box.style.borderRadius = "6px"
+            status_box.style.marginTop = "15px"
+            status_box.style.textAlign = "center"
+            status_box.innerText = "❌ Please fill out all fields!"
+            status_box.style.display = "block"
+        return
+
+    payload = {
+        "name": name_val,
+        "phone_number": phone_val,
+        "description": problem_val
+    }
+
+    try:
+        response = await pyfetch(
+            "http://127.0.0.1:8000/contact",
+            method="POST",
+            headers={"Content-Type": "application/json"},
+            body=json.dumps(payload)
+        )
+        result = await response.json()
+
+        if status_box:
+            if response.status == 200 and result.get("status") == "success":
+                status_box.style.backgroundColor = "#28a745"
+                status_box.style.color = "white"
+                status_box.style.padding = "10px 15px"
+                status_box.style.borderRadius = "6px"
+                status_box.style.marginTop = "15px"
+                status_box.style.textAlign = "center"
+                status_box.innerText = f"🎉 {result['message']}"
+                status_box.style.display = "block"
+
+                js.document.getElementById("name").value = ""
+                if phone_elem:
+                    phone_elem.value = ""
+                js.document.getElementById("problem").value = ""
+            else:
+                status_box.style.backgroundColor = "#dc3545"
+                status_box.style.color = "white"
+                status_box.style.padding = "10px 15px"
+                status_box.style.borderRadius = "6px"
+                status_box.style.marginTop = "15px"
+                status_box.style.textAlign = "center"
+                status_box.innerText = f"❌ {result.get('message', 'Submission failed')}"
+                status_box.style.display = "block"
+    except Exception as err:
+        if status_box:
+            status_box.style.backgroundColor = "#dc3545"
+            status_box.style.color = "white"
+            status_box.style.padding = "10px 15px"
+            status_box.style.borderRadius = "6px"
+            status_box.style.marginTop = "15px"
+            status_box.style.textAlign = "center"
+            status_box.innerText = f"❌ Error: {str(err)}"
+            status_box.style.display = "block"
 </script>
 
 </body>
