@@ -114,8 +114,7 @@
 
         <div class="services-grid">
 
-
-            <div class="service-card">
+            <div class="service-card" data-service="sweeping">
 
                 <div class="service-icon green">
                     <i class="fa-solid fa-broom"></i>
@@ -126,12 +125,9 @@
                     Floor cleaning
                 </p>
 
-
             </div>
 
-
-
-            <div class="service-card">
+            <div class="service-card" data-service="mopping">
 
                 <div class="service-icon blue">
                     <i class="fa-solid fa-broom"></i>
@@ -145,9 +141,7 @@
 
             </div>
 
-
-
-            <div class="service-card">
+            <div class="service-card" data-service="washing_vessels">
 
                 <div class="service-icon yellow">
                     <i class="fa-solid fa-soap"></i>
@@ -161,9 +155,7 @@
 
             </div>
 
-
-
-            <div class="service-card">
+            <div class="service-card" data-service="laundry">
 
                 <div class="service-icon pink">
                     <i class="fa-solid fa-shirt"></i>
@@ -177,7 +169,7 @@
 
             </div>
 
-            <div class="service-card">
+            <div class="service-card" data-service="dusting">
 
                 <div class="service-icon green">
                     <i class="fa-solid fa-broom"></i>
@@ -186,7 +178,7 @@
 
             </div>
 
-            <div class="service-card">
+            <div class="service-card" data-service="more">
 
                 <div class="service-icon yellow">
                     <i class="fa-solid fa-greater-than" style="color: rgb(5, 5, 5);"></i>
@@ -195,13 +187,6 @@
                 <h3>More Services</h3>
 
             </div>
-
-
-
-
-
-
-
 
         </div>
 
@@ -439,7 +424,7 @@
     </footer>
 
 
-<script type="py">
+    <script type="py">
 import js
 from pyscript import when
 from pyodide.ffi import create_proxy
@@ -463,6 +448,37 @@ def hero_book_click(event):
 @when("click", "#audience-book-btn")
 def audience_book_click(event):
     redirect_book_service(event)
+
+def handle_service_card_click(event):
+    """When a service card is clicked, redirect logged in user to booking_submission.html with service, else to login.html."""
+    event.preventDefault()
+    el = getattr(event, 'currentTarget', None)
+    service_name = None
+    if el and hasattr(el, 'getAttribute'):
+        service_name = el.getAttribute("data-service")
+    if not service_name:
+        el = getattr(event, 'target', None)
+        for _ in range(10):
+            if el is None:
+                break
+            if hasattr(el, 'getAttribute') and el.getAttribute("data-service"):
+                service_name = el.getAttribute("data-service")
+                break
+            el = getattr(el, 'parentElement', None)
+    
+    if service_name == "more":
+        js.window.location.href = "moksh_homeservices.html"
+    elif service_name:
+        if is_logged_in():
+            js.window.location.href = f"booking_submission.html?service={service_name}"
+        else:
+            js.window.location.href = "login.html"
+
+service_card_proxy = create_proxy(handle_service_card_click)
+cards = js.document.querySelectorAll(".services-grid .service-card")
+for i in range(cards.length):
+    cards[i].style.cursor = "pointer"
+    cards[i].addEventListener("click", service_card_proxy)
 
 # Update nav buttons based on login state
 def handle_logout(event):

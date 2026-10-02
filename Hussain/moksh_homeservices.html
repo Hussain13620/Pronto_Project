@@ -294,21 +294,27 @@ def is_logged_in():
     return js.window.localStorage.getItem("loggedIn") == "true"
 
 def handle_service_click(event):
-    """When a service card is clicked, redirect to booking_submission with service pre-selected."""
-    target = event.target
-    card = None
-    el = target
-    for _ in range(10):
-        if el is None:
-            break
-        if hasattr(el, 'classList') and el.classList and el.classList.contains("service-card"):
-            card = el
-            break
-        el = el.parentElement
+    """When a service card is clicked, redirect to booking_submission with service pre-selected (if logged in), else to login.html."""
+    event.preventDefault()
+    el = getattr(event, 'currentTarget', None)
+    service_name = None
+    if el and hasattr(el, 'getAttribute'):
+        service_name = el.getAttribute("data-service")
+    if not service_name:
+        el = getattr(event, 'target', None)
+        for _ in range(10):
+            if el is None:
+                break
+            if hasattr(el, 'getAttribute') and el.getAttribute("data-service"):
+                service_name = el.getAttribute("data-service")
+                break
+            el = getattr(el, 'parentElement', None)
     
-    if card and card.getAttribute("data-service"):
-        service_name = card.getAttribute("data-service")
-        js.window.location.href = f"booking_submission.html?service={service_name}"
+    if service_name:
+        if is_logged_in():
+            js.window.location.href = f"booking_submission.html?service={service_name}"
+        else:
+            js.window.location.href = "login.html"
 
 # Create a proxy so the Python function works as a JS callback
 click_proxy = create_proxy(handle_service_click)
