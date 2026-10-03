@@ -213,13 +213,54 @@
             <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="KaamKaaj">
         </div>
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
+            <a href="home.html">Home</a>
+            <a href="moksh_homeservices.html">Services</a>
             <a href="packages.html">Packages</a>
-            <a href="#about">About</a>
+            <a href="about.html">About</a>
             <a href="contactpage.html">Contact</a>
         </div>
     </footer>
+
+    <script>
+        function isLoggedIn() {
+            return localStorage.getItem("loggedIn") === "true";
+        }
+
+        function updateNav() {
+            if (isLoggedIn()) {
+                const navButtons = document.querySelector(".nav-buttons");
+                if (navButtons) {
+                    navButtons.innerHTML = '<a href="#" id="logout-btn" class="signup-btn">Logout</a>';
+                    const logoutBtn = document.getElementById("logout-btn");
+                    if (logoutBtn) {
+                        logoutBtn.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            localStorage.removeItem("loggedIn");
+                            localStorage.removeItem("userName");
+                            localStorage.removeItem("userType");
+                            window.location.reload();
+                        });
+                    }
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateNav();
+
+            // Intercept choose package buttons: redirect to login if not signed in
+            const pkgButtons = document.querySelectorAll(".pkg-btn");
+            pkgButtons.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const targetHref = btn.getAttribute("href");
+                    if (!isLoggedIn()) {
+                        e.preventDefault();
+                        window.location.href = `login.html?redirect=${encodeURIComponent(targetHref)}`;
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 
