@@ -216,6 +216,9 @@
                 <button type="button" class="btn btn-worker" id="worker-signup-btn">
                     Register as Worker / (ಕೆಲಸಗಾರರಾಗಿ ನೋಂದಾಯಿಸಿ)
                 </button>
+                <div class="signup-link">
+                    Already have an account? <a href="login.html" style="color: #0056b3;">Log In</a>
+                </div>
             </div>
         </div>
 
@@ -243,15 +246,27 @@
                     <label for="u-reg-password">Create Password</label>
                     <input type="password" id="u-reg-password" required placeholder="Min. 6 characters">
                 </div>
-                <a href="login.html">
                 <button type="button" class="btn btn-user" id="user-signup-btn">
                     Create User Account
                 </button>
-                </a>
+                <div class="signup-link">
+                    Already have an account? <a href="login.html" style="color: #28a745;">Log In</a>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const redirectParam = new URLSearchParams(window.location.search).get("redirect");
+            if (redirectParam) {
+                document.querySelectorAll(".signup-link a").forEach(link => {
+                    link.href = `login.html?redirect=${encodeURIComponent(redirectParam)}`;
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
@@ -291,6 +306,10 @@ async def handle_worker_signup(event):
             js.document.getElementById("w-fname").value = ""
             js.document.getElementById("w-reg-phone").value = ""
             js.document.getElementById("w-reg-password").value = ""
+            url_params = js.URLSearchParams.new(js.window.location.search)
+            redirect_url = url_params.get("redirect")
+            dest = f"login.html?redirect={redirect_url}" if redirect_url else "login.html"
+            js.window.setTimeout(js.eval(f"() => window.location.href = '{dest}'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Registration failed')}"
@@ -331,6 +350,10 @@ async def handle_user_signup(event):
             js.document.getElementById("u-reg-email").value = ""
             js.document.getElementById("u-phone").value = ""
             js.document.getElementById("u-reg-password").value = ""
+            url_params = js.URLSearchParams.new(js.window.location.search)
+            redirect_url = url_params.get("redirect")
+            dest = f"login.html?redirect={redirect_url}" if redirect_url else "login.html"
+            js.window.setTimeout(js.eval(f"() => window.location.href = '{dest}'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Registration failed')}"
