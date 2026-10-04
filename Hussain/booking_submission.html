@@ -7,6 +7,14 @@
 
     <title>KAAMKAAJ - Booking Submission</title>
 
+    <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            const currentPath = window.location.pathname.split('/').pop() || 'booking_submission.html';
+            const redirectTarget = currentPath + window.location.search;
+            window.location.replace("login.html?redirect=" + encodeURIComponent(redirectTarget));
+        }
+    </script>
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -213,6 +221,10 @@
 
             <a href="home.html" class="general">Home</a>
             <a href="moksh_homeservices.html" class="general">Services</a>
+<<<<<<< HEAD
+=======
+            <a href="packages.html" class="general">Packages</a>
+>>>>>>> 20470e445933328fa493009a037c1d337e708b90
             <a href="about.html" class="general">About</a>
             <a href="contactpage.html" class="general">Contact</a>
 
@@ -267,6 +279,25 @@
                     checkbox.checked = true;
                 }
             }
+
+            // Handle booking confirmation popup
+            const bookingForm = document.querySelector(".booking-section form");
+            const popup = document.getElementById("confirmation-popup");
+            const closeBtn = document.getElementById("close-popup-btn");
+
+            if (bookingForm && popup) {
+                bookingForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    popup.classList.add("active");
+                });
+            }
+
+            if (closeBtn && popup) {
+                closeBtn.addEventListener("click", () => {
+                    popup.classList.remove("active");
+                    window.location.href = "home.html";
+                });
+            }
         });
     </script>
 
@@ -293,6 +324,9 @@ def update_nav():
             if logout_btn:
                 logout_proxy = create_proxy(handle_logout)
                 logout_btn.addEventListener("click", logout_proxy)
+    else:
+        target = js.window.location.pathname.split('/').pop() + js.window.location.search
+        js.window.location.replace(f"login.html?redirect={js.encodeURIComponent(target)}")
 
 update_nav()
     </script>
