@@ -242,6 +242,17 @@
 
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const redirectParam = new URLSearchParams(window.location.search).get("redirect");
+            if (redirectParam) {
+                document.querySelectorAll(".signup-link a").forEach(link => {
+                    link.href = `signup.html?redirect=${encodeURIComponent(redirectParam)}`;
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
 
@@ -281,8 +292,12 @@ async def handle_worker_login(event):
             js.window.localStorage.setItem("loggedIn", "true")
             js.window.localStorage.setItem("userName", result.get("message", ""))
             js.window.localStorage.setItem("userType", "worker")
-            # Redirect to home page after a short delay
-            js.window.setTimeout(js.eval("() => window.location.href = 'home.html'"), 1500)
+            # Redirect after a short delay (to requested page or home)
+            url_params = js.URLSearchParams.new(js.window.location.search)
+            redirect_url = url_params.get("redirect")
+            if not redirect_url or redirect_url.strip() == "":
+                redirect_url = "home.html"
+            js.window.setTimeout(js.eval(f"() => window.location.href = '{redirect_url}'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
@@ -320,8 +335,12 @@ async def handle_user_login(event):
             js.window.localStorage.setItem("loggedIn", "true")
             js.window.localStorage.setItem("userName", result.get("message", ""))
             js.window.localStorage.setItem("userType", "user")
-            # Redirect to home page after a short delay
-            js.window.setTimeout(js.eval("() => window.location.href = 'home.html'"), 1500)
+            # Redirect after a short delay (to requested page or home)
+            url_params = js.URLSearchParams.new(js.window.location.search)
+            redirect_url = url_params.get("redirect")
+            if not redirect_url or redirect_url.strip() == "":
+                redirect_url = "home.html"
+            js.window.setTimeout(js.eval(f"() => window.location.href = '{redirect_url}'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
