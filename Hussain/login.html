@@ -157,6 +157,24 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .signup-link a {
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .signup-link a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -192,6 +210,9 @@
                 <button type="button" class="btn btn-worker" id="worker-login-btn">
                     Log In / (ಲಾಗಿನ್)
                 </button>
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html" style="color: #0056b3;">Sign up</a>
+                </div>
             </div>
         </div>
 
@@ -213,10 +234,24 @@
                 <button type="button" class="btn btn-user" id="user-login-btn">
                     Log In
                 </button>
+                <div class="signup-link">
+                    Don't have an account? <a href="signup.html" style="color: #28a745;">Sign up</a>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const redirectParam = new URLSearchParams(window.location.search).get("redirect");
+            if (redirectParam) {
+                document.querySelectorAll(".signup-link a").forEach(link => {
+                    link.href = `signup.html?redirect=${encodeURIComponent(redirectParam)}`;
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
@@ -253,6 +288,16 @@ async def handle_worker_login(event):
             status_box.style.display = "block"
             js.document.getElementById("w-phone").value = ""
             js.document.getElementById("w-password").value = ""
+            # Store login state in localStorage
+            js.window.localStorage.setItem("loggedIn", "true")
+            js.window.localStorage.setItem("userName", result.get("message", ""))
+            js.window.localStorage.setItem("userType", "worker")
+            # Redirect after a short delay (to requested page or home)
+            url_params = js.URLSearchParams.new(js.window.location.search)
+            redirect_url = url_params.get("redirect")
+            if not redirect_url or redirect_url.strip() == "":
+                redirect_url = "home.html"
+            js.window.setTimeout(js.eval(f"() => window.location.href = '{redirect_url}'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
@@ -286,6 +331,16 @@ async def handle_user_login(event):
             status_box.style.display = "block"
             js.document.getElementById("u-email").value = ""
             js.document.getElementById("u-password").value = ""
+            # Store login state in localStorage
+            js.window.localStorage.setItem("loggedIn", "true")
+            js.window.localStorage.setItem("userName", result.get("message", ""))
+            js.window.localStorage.setItem("userType", "user")
+            # Redirect after a short delay (to requested page or home)
+            url_params = js.URLSearchParams.new(js.window.location.search)
+            redirect_url = url_params.get("redirect")
+            if not redirect_url or redirect_url.strip() == "":
+                redirect_url = "home.html"
+            js.window.setTimeout(js.eval(f"() => window.location.href = '{redirect_url}'"), 1500)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"

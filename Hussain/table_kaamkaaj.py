@@ -20,3 +20,12 @@ schema_2={
     "worker_pass":"VARCHAR(250)"
 }
 createtable(host,user,password,database,table_2,schema_2)
+
+table_3="contact_data"
+schema_3={
+    "sr_no":"INT AUTO_INCREMENT PRIMARY KEY",
+    "name":"VARCHAR(250)",
+    "phone_number":"VARCHAR(250)",
+    "description":"TEXT"
+}
+createtable(host,user,password,database,table_3,schema_3)

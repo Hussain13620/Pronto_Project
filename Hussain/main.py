@@ -140,4 +140,33 @@ def worker_signup_info(credentials:worker_signup_credentials):
                 "message": f"Database error: {err.msg}"
             }
 
+class contact_credentials(BaseModel):
+    name: str
+    phone_number: str
+    description: str
+
+@app.post("/contact")
+def contact_info(credentials: contact_credentials):
+    host = "localhost"
+    user = "root"
+    password = "Hussain13620_root"
+    database = "KAAMKAAJ"
+    table = "contact_data"
+    contact_data_dict = {
+        "name": credentials.name,
+        "phone_number": credentials.phone_number,
+        "description": credentials.description
+    }
+    try:
+        insertdata(host, user, password, database, table, contact_data_dict)
+        return {
+            "status": "success",
+            "message": "Thank you for contacting us! Your message has been saved."
+        }
+    except mysql.connector.Error as err:
+        return {
+            "status": "error",
+            "message": f"Database error: {err.msg}"
+        }
+
 

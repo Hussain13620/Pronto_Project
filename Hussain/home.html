@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,434 +9,499 @@
 
     <link rel="stylesheet" href="style.css">
 
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-   
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 
 <body>
 
 
 
-<header class="header">
+    <header class="header">
 
-    <div class="navbar">
+        <div class="navbar">
 
-        <a href="#" class="logo">
+            <a href="#" class="logo">
 
-            <div class="logo-text">
-                <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
-            </div>
-        </a>
-
-        <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="moksh_homeservices.html">Services</a>
-            <a href="about.html">About</a>
-            <a href="contactpage.html">Contact</a>
-        </nav>
-
-        <div class="nav-buttons">
-            <a href="login.html" class="login-btn">Login</a>
-            <a href="signup.html" class="signup-btn">Sign Up</a>
-        </div>
-
-        <button class="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-    </div>
-
-</header>
-
-
-
-
-<section class="hero">
-
-    <div class="hero-content">
-
-
-        <h1>
-            Make Your Home<br>
-            <span>Work Better</span>
-        </h1>
-
-        <p>
-            Book verified and skilled workers for all your
-            household needs. Fast, simple and reliable.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="moksh_homeservices.html" class="primary-btn">
-                Book a Service
-                <i class="fa-solid fa-arrow-right"></i>
+                <div class="logo-text">
+                    <img src="../images/kaamkaaj_logo_green_v2.svg" alt="" height="70px" height="200px">
+                </div>
             </a>
 
-            <a href="#" class="secondary-btn">
-                Join as a Worker
-            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="moksh_homeservices.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contactpage.html">Contact</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn">Sign Up</a>
+            </div>
+
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
         </div>
 
-    </div>
-
-    <div class="hero-image">
-
-       <img src="../images/kaamkaaj_hero_cleaning_photo.png" alt="" height="400px" width="700px">
-
-    </div>
-
-</section>
+    </header>
 
 
 
 
-<section class="services-section" id="services">
+    <section class="hero">
 
-    <div class="section-heading">
-        <h2>Our Services</h2>
-
-        <p>
-            Choose from a range of household services,
-            all at your convenience.
-        </p>
-    </div>
+        <div class="hero-content">
 
 
-    <div class="services-grid">
-
-        
-        <div class="service-card">
-
-            <div class="service-icon green">
-                <i class="fa-solid fa-broom"></i>
-            </div>
-             <h3>Sweeping</h3>
+            <h1>
+                Make Your Home<br>
+                <span>Work Better</span>
+            </h1>
 
             <p>
-                Floor cleaning
+                Book verified and skilled workers for all your
+                household needs. Fast, simple and reliable.
             </p>
 
+            <div class="hero-buttons">
+
+                <a href="#" id="hero-book-btn" class="primary-btn">
+                    Book a Service
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#" class="secondary-btn">
+                    Join as a Worker
+                </a>
+
+            </div>
 
         </div>
 
+        <div class="hero-image">
 
-       
-        <div class="service-card">
+            <img src="../images/kaamkaaj_hero_cleaning_photo.png" alt="" height="400px" width="700px">
 
-            <div class="service-icon blue">
-                <i class="fa-solid fa-broom"></i>
-            </div>  
+        </div>
 
-            <h3>Mopping</h3>
+    </section>
+
+
+
+
+    <section class="services-section" id="services">
+
+        <div class="section-heading">
+            <h2>Our Services</h2>
 
             <p>
-                Floor cleaning, dusting
+                Choose from a range of household services,
+                all at your convenience.
             </p>
-
         </div>
 
 
-        
-        <div class="service-card">
+        <div class="services-grid">
 
-            <div class="service-icon yellow">
-                <i class="fa-solid fa-soap"></i>
+            <div class="service-card" data-service="sweeping">
+
+                <div class="service-icon green">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <h3>Sweeping</h3>
+
+                <p>
+                    Floor cleaning
+                </p>
+
             </div>
 
-            <h3>Washing Vessels</h3>
+            <div class="service-card" data-service="mopping">
 
-            <p>
-                Utensils cleaning
-            </p>
-
-        </div>
-
-
-        
-        <div class="service-card">
-
-            <div class="service-icon pink">
-                <i class="fa-solid fa-shirt"></i>
-            </div>
-
-            <h3>Laundry</h3>
-
-            <p>
-                Washing & ironing
-            </p>
-
-        </div>
-
-        <div class="service-card">
-
-            <div class="service-icon green">
-                <i class="fa-solid fa-broom"></i>
-            </div>
-             <h3>Dusting</h3>
-
-        </div>
-
-        <div class="service-card">
-
-            <div class="service-icon yellow">
-                <i class="fa-solid fa-greater-than" style="color: rgb(5, 5, 5);"></i>
-            </div>
-
-            <h3>More Services</h3>
-
-        </div>
-
-        
-
-
-
-       
-
-
-    </div>
-
-</section>
-
-
-
-
-<section class="audience-section" id="about">
-
-
-    <div class="audience-card user-card">
-
-        <div class="audience-content">
-
-            <div class="audience-title">
-                <i class="fa-solid fa-house"></i>
-                <span>For Users</span>
-            </div>
-
-            <h2>
-                Find Trusted Help for Your Home
-            </h2>
-
-            <p>
-                Book reliable workers, choose your preferred
-                time, and get your work done with ease.
-            </p>
-
-            <ul>
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Verified and background checked workers
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Easy booking and flexible timings
-                </li>
-
-            </ul>
-
-            <a href="#" class="small-primary-btn">
-                Book a Service
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </div>
-
-
-        <div class="phone-image">
-
-            <div class="phone">
-
-                <div class="phone-top">
-                    <span>9:41</span>
-                    <span>● ● ●</span>
+                <div class="service-icon blue">
+                    <i class="fa-solid fa-broom"></i>
                 </div>
 
-                <div class="phone-logo">
-                    KAAMKAAJ
+                <h3>Mopping</h3>
+
+                <p>
+                    Floor cleaning, dusting
+                </p>
+
+            </div>
+
+            <div class="service-card" data-service="washing_vessels">
+
+                <div class="service-icon yellow">
+                    <i class="fa-solid fa-soap"></i>
                 </div>
 
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    Search for a service...
+                <h3>Washing Vessels</h3>
+
+                <p>
+                    Utensils cleaning
+                </p>
+
+            </div>
+
+            <div class="service-card" data-service="laundry">
+
+                <div class="service-icon pink">
+                    <i class="fa-solid fa-shirt"></i>
                 </div>
 
-                <div class="phone-services">
+                <h3>Laundry</h3>
 
-                    <div>
-                        <i class="fa-solid fa-broom"></i>
-                        <span>Cleaning</span>
-                    </div>
+                <p>
+                    Washing & ironing
+                </p>
 
-                    <div>
-                        <i class="fa-solid fa-broom"></i>
-                        <span>Brooming</span>
-                    </div>
+            </div>
 
-                    <div>
-                        <i class="fa-solid fa-soap"></i>
-                        <span>Washing</span>
-                    </div>
+            <div class="service-card" data-service="dusting">
 
-                    <div>
-                        <i class="fa-solid fa-shirt"></i>
-                        <span>Laundry</span>
-                    </div>
+                <div class="service-icon green">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <h3>Dusting</h3>
 
+            </div>
+
+            <div class="service-card" data-service="more">
+
+                <div class="service-icon yellow">
+                    <i class="fa-solid fa-greater-than" style="color: rgb(5, 5, 5);"></i>
                 </div>
 
-                <div class="phone-bottom">
+                <h3>More Services</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <section class="audience-section" id="about">
+
+
+        <div class="audience-card user-card">
+
+            <div class="audience-content">
+
+                <div class="audience-title">
                     <i class="fa-solid fa-house"></i>
-                    <i class="fa-solid fa-calendar"></i>
-                    <i class="fa-solid fa-user"></i>
+                    <span>For Users</span>
+                </div>
+
+                <h2>
+                    Find Trusted Help for Your Home
+                </h2>
+
+                <p>
+                    Book reliable workers, choose your preferred
+                    time, and get your work done with ease.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Verified and background checked workers
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Easy booking and flexible timings
+                    </li>
+
+                </ul>
+
+                <a href="#" id="audience-book-btn" class="small-primary-btn">
+                    Book a Service
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="phone-image">
+
+                <div class="phone">
+
+                    <div class="phone-top">
+                        <span>9:41</span>
+                        <span>● ● ●</span>
+                    </div>
+
+                    <div class="phone-logo">
+                        KAAMKAAJ
+                    </div>
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Search for a service...
+                    </div>
+
+                    <div class="phone-services">
+
+                        <div>
+                            <i class="fa-solid fa-broom"></i>
+                            <span>Cleaning</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-broom"></i>
+                            <span>Brooming</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-soap"></i>
+                            <span>Washing</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-shirt"></i>
+                            <span>Laundry</span>
+                        </div>
+
+                    </div>
+
+                    <div class="phone-bottom">
+                        <i class="fa-solid fa-house"></i>
+                        <i class="fa-solid fa-calendar"></i>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
 
 
 
+        <div class="audience-card worker-card">
 
-    <div class="audience-card worker-card">
+            <div class="audience-content">
 
-        <div class="audience-content">
+                <div class="audience-title worker-title">
+                    <i class="fa-solid fa-user"></i>
+                    <span>For Workers</span>
+                </div>
 
-            <div class="audience-title worker-title">
-                <i class="fa-solid fa-user"></i>
-                <span>For Workers</span>
+                <h2>
+                    Earn with Dignity
+                </h2>
+
+                <p>
+                    Join as a worker, get verified, and start
+                    receiving
+                    <br>
+                    service requests in your area.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Get regular work opportunities
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Flexible working hours
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Safe and secure platform
+                    </li>
+                </ul>
+
+                <a href="#" class="worker-btn">
+                    Join as a Worker
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
             </div>
 
-            <h2>
-                Earn with Dignity
-            </h2>
 
-            <p>
-                Join as a worker, get verified, and start
-                receiving 
-                <br>
-                service requests in your area.
-            </p>
+            <div class="worker-image">
 
-            <ul>
+                <img src="../images/kaamkaaj_worker_photo.png" alt="" height="200px" width="100px">
 
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Get regular work opportunities
-                </li>
+            </div>
 
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Flexible working hours
-                </li>
+        </div>
 
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Safe and secure platform
-                </li>
-            </ul>
+    </section>
 
-            <a href="#" class="worker-btn">
-                Join as a Worker
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+
+
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <strong>Verified Workers</strong>
+                <p>Background checked for safety</p>
+            </div>
 
         </div>
 
 
-        <div class="worker-image">
+        <div class="feature">
 
-            <img src="../images/kaamkaaj_worker_photo.png" alt="" height="200px" width="100px">
+            <div class="feature-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+                <strong>Quick Booking</strong>
+                <p>Get help in minutes</p>
+            </div>
 
         </div>
 
-    </div>
 
-</section>
+        <div class="feature">
 
+            <div class="feature-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
 
+            <div>
+                <strong>Local Support</strong>
+                <p>Service in your area</p>
+            </div>
 
-
-<section class="features">
-
-    <div class="feature">
-
-        <div class="feature-icon">
-            <i class="fa-solid fa-shield-halved"></i>
         </div>
 
-        <div>
-            <strong>Verified Workers</strong>
-            <p>Background checked for safety</p>
+    </section>
+
+
+
+
+    <footer class="footer" id="contact">
+
+        <div class="footer-logo">
+            <div>
+                <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="" height="70px" height="200px">
+            </div>
+
         </div>
 
-    </div>
 
+        <div class="footer-links">
 
-    <div class="feature">
+            <a href="home.html" class="general">Home</a>
+            <a href="moksh_homeservices.html" class="general">Services</a>
+            <a href="packages.html" class="general">Packages</a>
+            <a href="about.html" class="general">About</a>
+            <a href="contactpage.html" class="general">Contact</a>
 
-        <div class="feature-icon">
-            <i class="fa-solid fa-bolt"></i>
         </div>
 
-        <div>
-            <strong>Quick Booking</strong>
-            <p>Get help in minutes</p>
-        </div>
-
-    </div>
+    </footer>
 
 
-    <div class="feature">
+    <script type="py">
+import js
+from pyscript import when
+from pyodide.ffi import create_proxy
 
-        <div class="feature-icon">
-            <i class="fa-solid fa-location-dot"></i>
-        </div>
+def is_logged_in():
+    """Check if the user is logged in by reading localStorage."""
+    return js.window.localStorage.getItem("loggedIn") == "true"
 
-        <div>
-            <strong>Local Support</strong>
-            <p>Service in your area</p>
-        </div>
+def redirect_book_service(event):
+    """Redirect to services page if logged in, otherwise to login page."""
+    event.preventDefault()
+    if is_logged_in():
+        js.window.location.href = "moksh_homeservices.html"
+    else:
+        js.window.location.href = "login.html"
 
-    </div>
+@when("click", "#hero-book-btn")
+def hero_book_click(event):
+    redirect_book_service(event)
 
-</section>
+@when("click", "#audience-book-btn")
+def audience_book_click(event):
+    redirect_book_service(event)
 
+def handle_service_card_click(event):
+    """When a service card is clicked, redirect logged in user to booking_submission.html with service, else to login.html."""
+    event.preventDefault()
+    el = getattr(event, 'currentTarget', None)
+    service_name = None
+    if el and hasattr(el, 'getAttribute'):
+        service_name = el.getAttribute("data-service")
+    if not service_name:
+        el = getattr(event, 'target', None)
+        for _ in range(10):
+            if el is None:
+                break
+            if hasattr(el, 'getAttribute') and el.getAttribute("data-service"):
+                service_name = el.getAttribute("data-service")
+                break
+            el = getattr(el, 'parentElement', None)
+    
+    if service_name == "more":
+        js.window.location.href = "moksh_homeservices.html"
+    elif service_name:
+        if is_logged_in():
+            js.window.location.href = f"booking_submission.html?service={service_name}"
+        else:
+            js.window.location.href = "login.html"
 
+service_card_proxy = create_proxy(handle_service_card_click)
+cards = js.document.querySelectorAll(".services-grid .service-card")
+for i in range(cards.length):
+    cards[i].style.cursor = "pointer"
+    cards[i].addEventListener("click", service_card_proxy)
 
+# Update nav buttons based on login state
+def handle_logout(event):
+    event.preventDefault()
+    js.window.localStorage.removeItem("loggedIn")
+    js.window.localStorage.removeItem("userName")
+    js.window.localStorage.removeItem("userType")
+    js.window.location.reload()
 
-<footer class="footer" id="contact">
+def update_nav():
+    if is_logged_in():
+        nav_buttons = js.document.querySelector(".nav-buttons")
+        if nav_buttons:
+            nav_buttons.innerHTML = '<a href="#" id="logout-btn" class="signup-btn">Logout</a>'
+            logout_btn = js.document.getElementById("logout-btn")
+            if logout_btn:
+                logout_proxy = create_proxy(handle_logout)
+                logout_btn.addEventListener("click", logout_proxy)
 
-    <div class="footer-logo">
-        <div>
-            <img src="../images/kaamkaaj_logo_navy_bg.svg" alt="" height="70px" height="200px">
-        </div>
-
-    </div>
-
-
-    <div class="footer-links">
-
-        <a href="#" class="general">Home</a>
-        <a href="moksh_homeservices.html" class="general">Services</a>
-        <a href="about.html" class="general">About</a>
-        <a href="contactpage.html" class="general">Contact</a>
-
-    </div>
-
-</footer>
-
+update_nav()
+</script>
 
 </body>
+
 </html>

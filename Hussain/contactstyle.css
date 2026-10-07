@@ -363,5 +363,26 @@ body {
     .form {
         padding: 30px 20px;
         margin: 0 15px;
+        width: 100%;
+    }
+
+    .form-content {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 25px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 }
