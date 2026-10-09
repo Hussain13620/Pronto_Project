@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join as a Worker - KAAMKAAJ</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .language {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .language select {
+            padding: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #075eb8;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .service {
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 6px;
+            background-color: #075eb8;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #064f9b;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- Language -->
+        <div class="language">
+            <label style="display: inline;">Language:</label>
+
+            <select>
+                <option>English</option>
+                <option>हिन्दी</option>
+                <option>ಕನ್ನಡ</option>
+            </select>
+        </div>
+
+
+        <h1>Join as a Worker</h1>
+
+        <p class="intro">
+            Fill in your details to join KAAMKAAJ.
+            <br>
+            (KAAMKAAJ से जुड़ने के लिए अपनी जानकारी भरें / KAAMKAAJ ಗೆ ಸೇರಲು ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ)
+        </p>
+
+
+        <form>
+
+            <!-- Name -->
+            <label>
+                Full Name (पूरा नाम / ಪೂರ್ಣ ಹೆಸರು)
+            </label>
+
+            <input type="text" name="name" required>
+
+
+            <!-- Phone -->
+            <label>
+                Phone Number (फोन नंबर / ದೂರವಾಣಿ ಸಂಖ್ಯೆ)
+            </label>
+
+            <input type="tel" name="phone" required>
+
+
+            <!-- Date of Birth -->
+            <label>
+                Date of Birth (जन्म तिथि / ಹುಟ್ಟಿದ ದಿನಾಂಕ)
+            </label>
+
+            <input type="date" name="dob" required>
+
+
+            <!-- Address -->
+            <label>
+                Address (पता / ವಿಳಾಸ)
+            </label>
+
+            <textarea name="address" rows="4" required></textarea>
+
+
+            <!-- Aadhaar -->
+            <label>
+                Aadhaar Number (आधार नंबर / ಆಧಾರ್ ಸಂಖ್ಯೆ)
+            </label>
+
+            <input type="text" name="aadhaar" maxlength="12">
+
+
+            <!-- ID Proof -->
+            <label>
+                Upload ID Proof (पहचान पत्र अपलोड करें / ಗುರುತಿನ ಚೀಟಿ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ)
+            </label>
+
+            <input type="file" name="id_proof">
+
+
+            <!-- Photo -->
+            <label>
+                Upload Your Photo (अपनी फोटो अपलोड करें / ನಿಮ್ಮ ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ)
+            </label>
+
+            <input type="file" name="photo" accept="image/*">
+
+
+            <!-- Services -->
+            <label>
+                Services You Provide
+                (आप कौन-सी सेवाएं देते हैं / ನೀವು ನೀಡುವ ಸೇವೆಗಳು)
+            </label>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Cleaning">
+                Cleaning (सफाई / ಸ್ವಚ್ಛತೆ)
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Mopping">
+                Mopping (पोछा लगाना / ನೆಲ ಒರೆಸುವುದು)
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Washing Vessels">
+                Washing Vessels (बर्तन धोना / ಪಾತ್ರೆ ತೊಳೆಯುವುದು)
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Laundry">
+                Laundry (कपड़े धोना / ಬಟ್ಟೆ ಒಗೆಯುವುದು)
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Dusting">
+                Dusting (धूल साफ करना / ಧೂಳು ತೆಗೆಯುವುದು)
+            </div>
+
+
+            <!-- Experience -->
+            <label>
+                Experience (अनुभव / ಅನುಭವ)
+            </label>
+
+            <input type="text" name="experience"
+                   placeholder="Example: 2 years">
+
+
+            <!-- Submit -->
+            <button type="submit">
+                Join as a Worker
+                (कामगार के रूप में जुड़ें / ಕೆಲಸಗಾರರಾಗಿ ಸೇರಿ)
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
