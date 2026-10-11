@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="kn">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAAMKAAJ - Join as a worker</title>
+    <link rel="stylesheet" href="joinasworker.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+            <div>
+                <img src="../images/kaamkaaj_logo_blue_v2.svg" alt="KAAMKAAJ Logo" style="width: 300px; height: 100px; padding-left: 130px; margin-bottom: 20px;">
+            </div>
+        <div class="language">
+            <label for="languageSelect">Language:</label>
+
+            <select id="languageSelect">
+                <option value="kn" selected>ಕನ್ನಡ</option>
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+            </select>
+        </div>
+
+
+        <h1 data-i18n="title">ಕೆಲಸಗಾರರಾಗಿ ಸೇರಿ</h1>
+
+        <p class="intro" data-i18n="intro">
+            KAAMKAAJ ಗೆ ಸೇರಲು ನಿಮ್ಮ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ.
+        </p>
+
+
+        <form>
+            <label data-i18n="name">
+                ಪೂರ್ಣ ಹೆಸರು
+            </label>
+
+            <input type="text" name="name" required>
+
+            <label data-i18n="phone">
+                ದೂರವಾಣಿ ಸಂಖ್ಯೆ
+            </label>
+
+            <input type="tel" name="phone" required>
+
+            <label data-i18n="dob">
+                ಹುಟ್ಟಿದ ದಿನಾಂಕ
+            </label>
+
+            <input type="date" name="dob" required>
+
+            <label data-i18n="address">
+                ವಿಳಾಸ
+            </label>
+
+            <textarea name="address" rows="4" required></textarea>
+
+            <label data-i18n="aadhaar">
+                ಆಧಾರ್ ಸಂಖ್ಯೆ
+            </label>
+
+            <input type="text" name="aadhaar" maxlength="12">
+
+            <label data-i18n="idProof">
+                ಗುರುತಿನ ಚೀಟಿ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ
+            </label>
+
+            <input type="file" name="id_proof">
+
+            <label data-i18n="photo">
+                ನಿಮ್ಮ ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ
+            </label>
+
+            <input type="file" name="photo" accept="image/*">
+
+            <label data-i18n="services">
+                ನೀವು ನೀಡುವ ಸೇವೆಗಳು
+            </label>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Cleaning">
+                <span data-i18n="svcCleaning">ಸ್ವಚ್ಛತೆ</span>
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Mopping">
+                <span data-i18n="svcMopping">ನೆಲ ಒರೆಸುವುದು</span>
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Washing Vessels">
+                <span data-i18n="svcWashing">ಪಾತ್ರೆ ತೊಳೆಯುವುದು</span>
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Laundry">
+                <span data-i18n="svcLaundry">ಬಟ್ಟೆ ಒಗೆಯುವುದು</span>
+            </div>
+
+            <div class="service">
+                <input type="checkbox" name="services" value="Dusting">
+                <span data-i18n="svcDusting">ಧೂಳು ತೆಗೆಯುವುದು</span>
+            </div>
+
+            <label data-i18n="experience">
+                ಅನುಭವ
+            </label>
+
+            <input type="text" name="experience" id="experienceInput" data-i18n-placeholder="experiencePlaceholder" placeholder="ಉದಾಹರಣೆ: 2 ವರ್ಷಗಳು">
+
+            <button type="submit" data-i18n="submit">
+                ಕೆಲಸಗಾರರಾಗಿ ಸೇರಿ
+            </button>
+
+        </form>
+
+    </div>
+    <script src="joinasworker.js"></script>
+
+</body>
+
+</html>
