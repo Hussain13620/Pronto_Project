@@ -318,6 +318,21 @@ body {
     margin-right: 5px;
 }
 
+.live-badge {
+    display: none;
+}
+
+.live-badge.visible {
+    display: inline-block;
+}
+
+.activity-empty {
+    color: var(--grey);
+    font-size: 12px;
+    text-align: center;
+    padding: 25px 10px;
+}
+
 /* JOB REQUEST */
 
 .request-card {
@@ -576,6 +591,7 @@ body {
     padding: 15px 0;
     border-bottom: 1px solid var(--border);
 }
+
 
 .activity-item:last-child {
     border-bottom: none;
