@@ -1,8 +1,8 @@
-
 const translations = {
     kn: {
+        workerName: "ಕೆಲಸಗಾರ",
         worker: "ಕೆಲಸಗಾರ",
-        welcome: "ನಮಸ್ಕಾರ, ರಮೇಶ್!",
+        welcome: "ನಮಸ್ಕಾರ!",
         ready: "ಕೆಲಸಕ್ಕೆ ಸಿದ್ಧರಿದ್ದೀರಾ?",
         welcomeSub: "ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಪ್ರಾರಂಭಿಸಿ ಮತ್ತು ಹಣ ಸಂಪಾದಿಸಿ.",
         offline: "ಆಫ್‌ಲೈನ್",
@@ -19,16 +19,6 @@ const translations = {
         allTime: "ಇದುವರೆಗಿನ ಗಳಿಕೆ",
         requests: "ಕೆಲಸದ ವಿನಂತಿಗಳು",
         requestsSub: "ನಿಮ್ಮ ಹತ್ತಿರದ ಕೆಲಸಗಳು",
-        newRequest: "ಹೊಸ ವಿನಂತಿ",
-        houseCleaning: "ಮನೆ ಸ್ವಚ್ಛಗೊಳಿಸುವಿಕೆ",
-        customerRequest: "ಗ್ರಾಹಕರ ಕೆಲಸದ ವಿನಂತಿ",
-        customer: "ಗ್ರಾಹಕರು",
-        location: "ಸ್ಥಳ",
-        distance: "ದೂರ",
-        youWillEarn: "ನಿಮಗೆ ಸಿಗುವ ಹಣ",
-        cashPayment: "ನಗದು ಪಾವತಿ",
-        accept: "ಸ್ವೀಕರಿಸಿ",
-        reject: "ತಿರಸ್ಕರಿಸಿ",
         noRequests: "ಯಾವುದೇ ಹೊಸ ವಿನಂತಿಗಳಿಲ್ಲ",
         noRequestsSub: "ಹೊಸ ಕೆಲಸದ ವಿನಂತಿಗಳಿಗಾಗಿ ಕಾಯಿರಿ.",
         goOnline: "ಕೆಲಸ ಪಡೆಯಲು ಆನ್‌ಲೈನ್‌ಗೆ ಬನ್ನಿ",
@@ -38,19 +28,13 @@ const translations = {
         mapNote: "ನಿಮ್ಮ ಸುತ್ತಮುತ್ತಲಿನ ಸೇವಾ ವಿನಂತಿಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.",
         recentActivity: "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆ",
         activitySub: "ನಿಮ್ಮ ಹಿಂದಿನ ಕೆಲಸಗಳು",
-        plumbing: "ಪ್ಲಂಬಿಂಗ್ ಕೆಲಸ",
-        cleaning: "ಮನೆ ಸ್ವಚ್ಛಗೊಳಿಸುವಿಕೆ",
-        electrical: "ಎಲೆಕ್ಟ್ರಿಕಲ್ ಕೆಲಸ",
-        footer: "ನಿಮ್ಮ ಕೆಲಸ, ನಿಮ್ಮ ಆದಾಯ.",
-        accepted: "ಕೆಲಸದ ವಿನಂತಿಯನ್ನು ಸ್ವೀಕರಿಸಲಾಗಿದೆ!",
-        rejected: "ಕೆಲಸದ ವಿನಂತಿಯನ್ನು ತಿರಸ್ಕರಿಸಲಾಗಿದೆ.",
-        expired: "ವಿನಂತಿಯ ಸಮಯ ಮುಗಿದಿದೆ.",
-        wait: "ಹೊಸ ಕೆಲಸದ ವಿನಂತಿಗಳಿಗಾಗಿ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿರಿ."
+        noActivity: "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆಗಳಿಲ್ಲ",
+        footer: "ನಿಮ್ಮ ಕೆಲಸ, ನಿಮ್ಮ ಆದಾಯ."
     },
-
     en: {
+        workerName: "Worker",
         worker: "Worker",
-        welcome: "Hello, Ramesh!",
+        welcome: "Welcome!",
         ready: "Ready to get to work?",
         welcomeSub: "Start working and earn money today.",
         offline: "Offline",
@@ -67,16 +51,6 @@ const translations = {
         allTime: "Lifetime earnings",
         requests: "Job Requests",
         requestsSub: "Jobs available near you",
-        newRequest: "NEW REQUEST",
-        houseCleaning: "House Cleaning",
-        customerRequest: "Customer service request",
-        customer: "Customer",
-        location: "Location",
-        distance: "Distance",
-        youWillEarn: "You will earn",
-        cashPayment: "Cash Payment",
-        accept: "Accept",
-        reject: "Reject",
         noRequests: "No new requests",
         noRequestsSub: "Wait for new job requests.",
         goOnline: "Go online to receive jobs",
@@ -86,19 +60,13 @@ const translations = {
         mapNote: "Service requests near you will appear here.",
         recentActivity: "Recent Activity",
         activitySub: "Your previous jobs",
-        plumbing: "Plumbing Work",
-        cleaning: "House Cleaning",
-        electrical: "Electrical Work",
-        footer: "Your work, your income.",
-        accepted: "Job request accepted!",
-        rejected: "Job request rejected.",
-        expired: "Request expired.",
-        wait: "Stay online for new job requests."
+        noActivity: "No recent activity",
+        footer: "Your work, your income."
     },
-
     hi: {
+        workerName: "कर्मचारी",
         worker: "कर्मचारी",
-        welcome: "नमस्ते, रमेश!",
+        welcome: "नमस्ते!",
         ready: "काम शुरू करने के लिए तैयार हैं?",
         welcomeSub: "आज काम शुरू करें और पैसे कमाएं।",
         offline: "ऑफलाइन",
@@ -115,16 +83,6 @@ const translations = {
         allTime: "अब तक की कमाई",
         requests: "काम के अनुरोध",
         requestsSub: "आपके आस-पास उपलब्ध काम",
-        newRequest: "नई रिक्वेस्ट",
-        houseCleaning: "घर की सफाई",
-        customerRequest: "ग्राहक का काम अनुरोध",
-        customer: "ग्राहक",
-        location: "स्थान",
-        distance: "दूरी",
-        youWillEarn: "आपको मिलेंगे",
-        cashPayment: "नकद भुगतान",
-        accept: "स्वीकार करें",
-        reject: "अस्वीकार करें",
         noRequests: "कोई नया अनुरोध नहीं",
         noRequestsSub: "नए काम के अनुरोधों का इंतजार करें।",
         goOnline: "काम पाने के लिए ऑनलाइन आएं",
@@ -134,178 +92,169 @@ const translations = {
         mapNote: "आपके आस-पास के सेवा अनुरोध यहां दिखाई देंगे।",
         recentActivity: "हाल की गतिविधियां",
         activitySub: "आपके पिछले काम",
-        plumbing: "प्लंबिंग का काम",
-        cleaning: "घर की सफाई",
-        electrical: "इलेक्ट्रिकल का काम",
-        footer: "आपका काम, आपकी कमाई।",
-        accepted: "काम का अनुरोध स्वीकार किया गया!",
-        rejected: "काम का अनुरोध अस्वीकार किया गया।",
-        expired: "अनुरोध का समय समाप्त हो गया।",
-        wait: "नए काम पाने के लिए ऑनलाइन रहें।"
+        noActivity: "हाल की कोई गतिविधि नहीं",
+        footer: "आपका काम, आपकी कमाई।"
     }
 };
 
-// LANGUAGE CHANGE
+const STORAGE_KEY = "pronto.worker.dashboard.v1";
+const defaultDashboard = {
+    name: "",
+    todayEarnings: 0,
+    completedJobs: 0,
+    rating: 0,
+    totalEarnings: 0,
+    isOnline: false,
+    recentActivity: []
+};
+
+function readStoredDashboard() {
+    let stored = {};
+
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        stored = raw ? JSON.parse(raw) : {};
+    } catch (error) {
+        stored = {};
+    }
+
+    return {
+        ...defaultDashboard,
+        ...(window.PRONTO_WORKER_DATA || {}),
+        ...stored
+    };
+}
+
+let dashboard = readStoredDashboard();
 
 const languageSelect = document.getElementById("languageSelect");
+const onlineToggle = document.getElementById("onlineToggle");
+const statusText = document.getElementById("statusText");
+const statusSub = document.getElementById("statusSub");
+const emptyState = document.getElementById("emptyState");
+const offlineMessage = document.getElementById("offlineMessage");
+const liveBadge = document.getElementById("liveBadge");
+const toast = document.getElementById("toast");
+
+const rupeeFormatter = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+});
+
+function toSafeNumber(value) {
+    const number = Number(value);
+    return Number.isFinite(number) && number >= 0 ? number : 0;
+}
+
+function saveDashboard() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(dashboard));
+    } catch (error) {
+        // The dashboard remains usable if local storage is unavailable.
+    }
+}
+
+function renderDashboard() {
+    dashboard.todayEarnings = toSafeNumber(dashboard.todayEarnings);
+    dashboard.completedJobs = toSafeNumber(dashboard.completedJobs);
+    dashboard.rating = toSafeNumber(dashboard.rating);
+    dashboard.totalEarnings = toSafeNumber(dashboard.totalEarnings);
+
+    document.getElementById("todayEarnings").textContent = rupeeFormatter.format(dashboard.todayEarnings);
+    document.getElementById("completedJobs").textContent = Math.floor(dashboard.completedJobs).toLocaleString("en-IN");
+    document.getElementById("rating").textContent = dashboard.rating.toFixed(1);
+    document.getElementById("totalEarnings").textContent = rupeeFormatter.format(dashboard.totalEarnings);
+
+    const profileName = typeof dashboard.name === "string" ? dashboard.name.trim() : "";
+    const nameElement = document.getElementById("profileName");
+    const name = profileName || translations[languageSelect.value].workerName;
+    nameElement.textContent = name;
+    document.getElementById("profileInitial").textContent = name.charAt(0).toUpperCase();
+
+    renderActivity();
+}
+
+function renderActivity() {
+    const activityList = document.getElementById("activityList");
+    const activityEmpty = document.getElementById("activityEmpty");
+    const activities = Array.isArray(dashboard.recentActivity) ? dashboard.recentActivity : [];
+
+    activityList.replaceChildren();
+    activityEmpty.style.display = activities.length ? "none" : "block";
+
+    activities.forEach((activity) => {
+        const item = document.createElement("div");
+        item.className = "activity-item";
+
+        const icon = document.createElement("div");
+        icon.className = "activity-icon";
+        icon.textContent = "₹";
+
+        const info = document.createElement("div");
+        info.className = "activity-info";
+
+        const title = document.createElement("strong");
+        title.textContent = String(activity.title || "");
+        const meta = document.createElement("small");
+        meta.textContent = String(activity.meta || "");
+        info.append(title, meta);
+
+        const amount = document.createElement("strong");
+        amount.className = "amount";
+        amount.textContent = rupeeFormatter.format(toSafeNumber(activity.amount));
+
+        item.append(icon, info, amount);
+        activityList.appendChild(item);
+    });
+}
 
 function changeLanguage(language) {
     const selected = translations[language];
 
     document.documentElement.lang = language;
-
-    document.querySelectorAll("[data-i18n]").forEach(element => {
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.getAttribute("data-i18n");
-
         if (selected[key]) {
             element.textContent = selected[key];
         }
     });
 
     updateOnlineStatus();
+    renderDashboard();
 }
 
-languageSelect.addEventListener("change", function () {
-    changeLanguage(this.value);
-});
-
-// ONLINE / OFFLINE STATUS
-
-const onlineToggle = document.getElementById("onlineToggle");
-const statusText = document.getElementById("statusText");
-const statusSub = document.getElementById("statusSub");
-
-const requestCard = document.getElementById("requestCard");
-const emptyState = document.getElementById("emptyState");
-const offlineMessage = document.getElementById("offlineMessage");
-
-let requestStatus = "waiting";
-let countdown = 15;
-let timerInterval = null;
-
 function updateOnlineStatus() {
-
     const t = translations[languageSelect.value];
 
     if (onlineToggle.checked) {
-
         statusText.textContent = t.online;
         statusText.style.color = "#00a86b";
         statusSub.textContent = t.onlineSub;
-
         offlineMessage.style.display = "none";
-
-        if (requestStatus === "waiting") {
-            requestCard.style.display = "block";
-            startTimer();
-        } else {
-            requestCard.style.display = "none";
-            emptyState.style.display = "block";
-        }
-
+        emptyState.style.display = "block";
+        liveBadge.classList.add("visible");
     } else {
-
         statusText.textContent = t.offline;
         statusText.style.color = "#6b7280";
         statusSub.textContent = t.statusSub;
-
-        requestCard.style.display = "none";
         emptyState.style.display = "none";
         offlineMessage.style.display = "block";
-
-        clearInterval(timerInterval);
+        liveBadge.classList.remove("visible");
     }
+
+    dashboard.isOnline = onlineToggle.checked;
+    saveDashboard();
 }
+
+languageSelect.addEventListener("change", function () {
+    localStorage.setItem("pronto.worker.language", this.value);
+    changeLanguage(this.value);
+});
 
 onlineToggle.addEventListener("change", updateOnlineStatus);
 
-// REQUEST TIMER
-
-const timerElement = document.getElementById("timer");
-
-function startTimer() {
-
-    clearInterval(timerInterval);
-
-    if (requestStatus !== "waiting") return;
-
-    countdown = 15;
-    timerElement.textContent = countdown + "s";
-
-    timerInterval = setInterval(() => {
-
-        if (!onlineToggle.checked || requestStatus !== "waiting") {
-            clearInterval(timerInterval);
-            return;
-        }
-
-        countdown--;
-
-        timerElement.textContent = countdown + "s";
-
-        if (countdown <= 0) {
-
-            clearInterval(timerInterval);
-
-            requestStatus = "expired";
-
-            requestCard.style.display = "none";
-            emptyState.style.display = "block";
-
-            showToast(translations[languageSelect.value].expired);
-        }
-
-    }, 1000);
-}
-
-// ACCEPT REQUEST
-
-document.getElementById("acceptBtn").addEventListener("click", function () {
-
-    if (!onlineToggle.checked || requestStatus !== "waiting") return;
-
-    clearInterval(timerInterval);
-
-    requestStatus = "accepted";
-
-    requestCard.style.display = "none";
-    emptyState.style.display = "block";
-
-    showToast(translations[languageSelect.value].accepted);
-
-});
-
-// REJECT REQUEST
-
-document.getElementById("rejectBtn").addEventListener("click", function () {
-
-    if (!onlineToggle.checked || requestStatus !== "waiting") return;
-
-    clearInterval(timerInterval);
-
-    requestStatus = "rejected";
-
-    requestCard.style.display = "none";
-    emptyState.style.display = "block";
-
-    showToast(translations[languageSelect.value].rejected);
-
-});
-
-// TOAST MESSAGE
-
-const toast = document.getElementById("toast");
-
-function showToast(message) {
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
-}
-
-// INITIAL LANGUAGE
-
-changeLanguage("kn");
+onlineToggle.checked = Boolean(dashboard.isOnline);
+const initialLanguage = localStorage.getItem("pronto.worker.language") || "kn";
+languageSelect.value = initialLanguage;
+changeLanguage(initialLanguage);
