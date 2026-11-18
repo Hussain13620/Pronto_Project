@@ -26,9 +26,9 @@
             </div>
 
             <div class="profile">
-                <div class="avatar">R</div>
+                <div class="avatar" id="profileInitial">W</div>
                 <div class="profile-info">
-                    <strong>Ramesh</strong>
+                    <strong id="profileName" data-i18n="workerName">Worker</strong>
                     <small data-i18n="worker">Worker</small>
                 </div>
             </div>
@@ -40,7 +40,7 @@
         <!-- WELCOME SECTION -->
         <section class="welcome">
             <div>
-                <p class="greeting" data-i18n="welcome">ನಮಸ್ಕಾರ, ರಮೇಶ್!</p>
+                <p class="greeting" data-i18n="welcome">ನಮಸ್ಕಾರ!</p>
                 <h1 data-i18n="ready">ಕೆಲಸಕ್ಕೆ ಸಿದ್ಧರಿದ್ದೀರಾ?</h1>
                 <p class="subtitle" data-i18n="welcomeSub">
                     ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಪ್ರಾರಂಭಿಸಿ ಮತ್ತು ಹಣ ಸಂಪಾದಿಸಿ.
@@ -66,28 +66,28 @@
             <div class="stat-card">
                 <div class="stat-icon green">₹</div>
                 <p data-i18n="todayEarnings">ಇಂದಿನ ಗಳಿಕೆ</p>
-                <h2>₹850</h2>
+                <h2 id="todayEarnings">₹0</h2>
                 <small data-i18n="todayGrowth">ಇಂದಿನ ಒಟ್ಟು ಗಳಿಕೆ</small>
             </div>
 
             <div class="stat-card">
                 <div class="stat-icon blue">✓</div>
                 <p data-i18n="completedJobs">ಪೂರ್ಣಗೊಂಡ ಕೆಲಸಗಳು</p>
-                <h2>04</h2>
+                <h2 id="completedJobs">0</h2>
                 <small data-i18n="jobsToday">ಇಂದು ಪೂರ್ಣಗೊಂಡಿವೆ</small>
             </div>
 
             <div class="stat-card">
                 <div class="stat-icon orange">★</div>
                 <p data-i18n="rating">ನಿಮ್ಮ ರೇಟಿಂಗ್</p>
-                <h2>4.8<span class="star">★</span></h2>
+                <h2><span id="rating">0.0</span><span class="star">★</span></h2>
                 <small data-i18n="customerRating">ಗ್ರಾಹಕರ ರೇಟಿಂಗ್</small>
             </div>
 
             <div class="stat-card">
                 <div class="stat-icon purple">₹</div>
                 <p data-i18n="totalEarnings">ಒಟ್ಟು ಗಳಿಕೆ</p>
-                <h2>₹12,500</h2>
+                <h2 id="totalEarnings">₹0</h2>
                 <small data-i18n="allTime">ಇದುವರೆಗಿನ ಗಳಿಕೆ</small>
             </div>
 
@@ -104,75 +104,13 @@
                         <h2 data-i18n="requests">ಕೆಲಸದ ವಿನಂತಿಗಳು</h2>
                         <p data-i18n="requestsSub">ನಿಮ್ಮ ಹತ್ತಿರದ ಕೆಲಸಗಳು</p>
                     </div>
-                    <span class="live-badge">
+                    <span class="live-badge" id="liveBadge">
                         <span class="live-dot"></span>
                         LIVE
                     </span>
                 </div>
 
-                <div class="request-card" id="requestCard">
-
-                    <div class="request-top">
-                        <span class="request-tag" data-i18n="newRequest">ಹೊಸ ವಿನಂತಿ</span>
-                        <span class="timer" id="timer">15s</span>
-                    </div>
-
-                    <div class="service-info">
-                        <div class="service-icon">🧹</div>
-                        <div>
-                            <h3 data-i18n="houseCleaning">ಮನೆ ಸ್ವಚ್ಛಗೊಳಿಸುವಿಕೆ</h3>
-                            <p data-i18n="customerRequest">ಗ್ರಾಹಕರ ಕೆಲಸದ ವಿನಂತಿ</p>
-                        </div>
-                    </div>
-
-                    <div class="request-details">
-                        <div class="detail-row">
-                            <span>👤</span>
-                            <div>
-                                <small data-i18n="customer">ಗ್ರಾಹಕರು</small>
-                                <strong>Rahul Sharma</strong>
-                            </div>
-                        </div>
-
-                        <div class="detail-row">
-                            <span>📍</span>
-                            <div>
-                                <small data-i18n="location">ಸ್ಥಳ</small>
-                                <strong>Royal Residency, Block A</strong>
-                            </div>
-                        </div>
-
-                        <div class="detail-row">
-                            <span>🚶</span>
-                            <div>
-                                <small data-i18n="distance">ದೂರ</small>
-                                <strong>1.2 km</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="payment-row">
-                        <div>
-                            <small data-i18n="youWillEarn">ನಿಮಗೆ ಸಿಗುವ ಹಣ</small>
-                            <h2>₹450</h2>
-                        </div>
-                        <span class="payment-label" data-i18n="cashPayment">
-                            ನಗದು ಪಾವತಿ
-                        </span>
-                    </div>
-
-                    <div class="request-buttons">
-                        <button class="reject-btn" id="rejectBtn" data-i18n="reject">
-                            ತಿರಸ್ಕರಿಸಿ
-                        </button>
-                        <button class="accept-btn" id="acceptBtn" data-i18n="accept">
-                            ಸ್ವೀಕರಿಸಿ
-                        </button>
-                    </div>
-
-                </div>
-
-                <div class="empty-state" id="emptyState">
+                <div class="empty-state" id="emptyState" style="display: none;">
                     <div class="empty-icon">📭</div>
                     <h3 data-i18n="noRequests">ಯಾವುದೇ ಹೊಸ ವಿನಂತಿಗಳಿಲ್ಲ</h3>
                     <p data-i18n="noRequestsSub">
@@ -208,7 +146,6 @@
                             <span class="location-pulse"></span>
                             <span class="location-pin">📍</span>
                         </div>
-                        <span class="map-label">Bengaluru</span>
                     </div>
 
                     <p class="map-note" data-i18n="mapNote">
@@ -224,32 +161,10 @@
                         </div>
                     </div>
 
-                    <div class="activity-item">
-                        <div class="activity-icon">🔧</div>
-                        <div class="activity-info">
-                            <strong data-i18n="plumbing">ಪ್ಲಂಬಿಂಗ್ ಕೆಲಸ</strong>
-                            <small>Rahul • 10:30 AM</small>
-                        </div>
-                        <strong class="amount">+₹300</strong>
+                    <div class="activity-empty" id="activityEmpty" data-i18n="noActivity">
+                        No recent activity
                     </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">🧹</div>
-                        <div class="activity-info">
-                            <strong data-i18n="cleaning">ಮನೆ ಸ್ವಚ್ಛಗೊಳಿಸುವಿಕೆ</strong>
-                            <small>Priya • 09:15 AM</small>
-                        </div>
-                        <strong class="amount">+₹550</strong>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon">⚡</div>
-                        <div class="activity-info">
-                            <strong data-i18n="electrical">ಎಲೆಕ್ಟ್ರಿಕಲ್ ಕೆಲಸ</strong>
-                            <small>Arun • Yesterday</small>
-                        </div>
-                        <strong class="amount">+₹400</strong>
-                    </div>
+                    <div id="activityList"></div>
                 </div>
 
             </div>
