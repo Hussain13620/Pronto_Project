@@ -211,7 +211,7 @@
                 </div>
                 <div class="form-group">
                     <label for="w-reg-password">Create Password / (ಗುಪ್ತಪದವನ್ನು ರಚಿಸಿ)</label>
-                    <input type="password" id="w-reg-password" required placeholder="••••••••">
+                    <input type="password" id="w-reg-password" required minlength="8" placeholder="At least 8 characters">
                 </div>
                 <button type="button" class="btn btn-worker" id="worker-signup-btn">
                     Register as Worker / (ಕೆಲಸಗಾರರಾಗಿ ನೋಂದಾಯಿಸಿ)
@@ -244,7 +244,7 @@
                 </div>
                 <div class="form-group">
                     <label for="u-reg-password">Create Password</label>
-                    <input type="password" id="u-reg-password" required placeholder="Min. 6 characters">
+                    <input type="password" id="u-reg-password" required minlength="8" placeholder="Min. 8 characters">
                 </div>
                 <button type="button" class="btn btn-user" id="user-signup-btn">
                     Create User Account
@@ -293,7 +293,8 @@ async def handle_worker_signup(event):
         "http://127.0.0.1:8000/worker-signup",
         method="POST",
         headers={"Content-Type": "application/json"},
-        body=json.dumps(payload)
+        body=json.dumps(payload),
+        credentials="include"
     )
     
     result = await response.json()
@@ -308,8 +309,10 @@ async def handle_worker_signup(event):
             js.document.getElementById("w-reg-password").value = ""
             url_params = js.URLSearchParams.new(js.window.location.search)
             redirect_url = url_params.get("redirect")
-            dest = f"login.html?redirect={redirect_url}" if redirect_url else "login.html"
-            js.window.setTimeout(js.eval(f"() => window.location.href = '{dest}'"), 1500)
+            if redirect_url and (redirect_url.startswith(("/", "\\")) or ":" in redirect_url):
+                redirect_url = None
+            dest = f"login.html?redirect={js.encodeURIComponent(redirect_url)}" if redirect_url else "login.html"
+            js.window.location.assign(dest)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Registration failed')}"
@@ -336,7 +339,8 @@ async def handle_user_signup(event):
         "http://127.0.0.1:8000/signup",
         method="POST",
         headers={"Content-Type": "application/json"},
-        body=json.dumps(payload)
+        body=json.dumps(payload),
+        credentials="include"
     )
     
     result = await response.json()
@@ -352,8 +356,10 @@ async def handle_user_signup(event):
             js.document.getElementById("u-reg-password").value = ""
             url_params = js.URLSearchParams.new(js.window.location.search)
             redirect_url = url_params.get("redirect")
-            dest = f"login.html?redirect={redirect_url}" if redirect_url else "login.html"
-            js.window.setTimeout(js.eval(f"() => window.location.href = '{dest}'"), 1500)
+            if redirect_url and (redirect_url.startswith(("/", "\\")) or ":" in redirect_url):
+                redirect_url = None
+            dest = f"login.html?redirect={js.encodeURIComponent(redirect_url)}" if redirect_url else "login.html"
+            js.window.location.assign(dest)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Registration failed')}"
