@@ -101,6 +101,22 @@ body {
     margin-top: 3px;
 }
 
+.logout-btn {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 9px 12px;
+}
+
+.logout-btn:hover {
+    background: var(--light);
+}
+
 /* MAIN */
 
 .container {
@@ -491,6 +507,52 @@ body {
     padding: 40px 15px;
 }
 
+.request-status {
+    color: #b91c1c;
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+.claim-btn {
+    width: 100%;
+    margin-top: 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px;
+}
+
+.claim-btn:hover {
+    background: var(--dark-blue);
+}
+
+.claim-btn:disabled {
+    cursor: wait;
+    opacity: .65;
+}
+
+.request-card + .request-card {
+    margin-top: 16px;
+}
+
+.requested-services {
+    padding-left: 20px;
+    color: var(--black);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.request-property {
+    color: var(--grey);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
 .empty-icon {
     font-size: 38px;
     margin-bottom: 14px;
@@ -687,6 +749,10 @@ footer {
 
     .nav-right {
         gap: 10px;
+    }
+
+    .logout-btn {
+        padding: 8px;
     }
 
     .profile-info {
