@@ -1,8 +1,15 @@
+import os
+
 from sqlfunct import createtable
-host="localhost"
-user="root"
-password="Hussain13620_root"
-database="KAAMKAAJ"
+
+host = os.environ.get("MYSQL_HOST", "localhost")
+user = os.environ.get("MYSQL_USER", "root")
+password = os.environ.get("MYSQL_PASSWORD")
+database = os.environ.get("MYSQL_DATABASE", "KAAMKAAJ")
+
+if password is None:
+    raise RuntimeError("Set the MYSQL_PASSWORD environment variable before creating tables.")
+
 table_1="user_data"
 schema_1={
     "ID":"INT AUTO_INCREMENT PRIMARY KEY",
