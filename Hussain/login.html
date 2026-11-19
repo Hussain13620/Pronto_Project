@@ -276,7 +276,8 @@ async def handle_worker_login(event):
         "http://127.0.0.1:8000/worker-login",
         method="POST",
         headers={"Content-Type": "application/json"},
-        body=json.dumps(payload)
+        body=json.dumps(payload),
+        credentials="include"
     )
     
     result = await response.json()
@@ -288,16 +289,16 @@ async def handle_worker_login(event):
             status_box.style.display = "block"
             js.document.getElementById("w-phone").value = ""
             js.document.getElementById("w-password").value = ""
-            # Store login state in localStorage
             js.window.localStorage.setItem("loggedIn", "true")
-            js.window.localStorage.setItem("userName", result.get("message", ""))
+            js.window.localStorage.setItem("userName", result.get("name", ""))
             js.window.localStorage.setItem("userType", "worker")
-            # Redirect after a short delay (to requested page or home)
             url_params = js.URLSearchParams.new(js.window.location.search)
             redirect_url = url_params.get("redirect")
             if not redirect_url or redirect_url.strip() == "":
-                redirect_url = "home.html"
-            js.window.setTimeout(js.eval(f"() => window.location.href = '{redirect_url}'"), 1500)
+                redirect_url = "../WORKERS%20FRONTEND/workershome.html"
+            if redirect_url.startswith(("/", "\\")) or ":" in redirect_url:
+                redirect_url = "../WORKERS%20FRONTEND/workershome.html"
+            js.window.location.assign(redirect_url)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
@@ -319,7 +320,8 @@ async def handle_user_login(event):
         "http://127.0.0.1:8000/login",
         method="POST",
         headers={"Content-Type": "application/json"},
-        body=json.dumps(payload)
+        body=json.dumps(payload),
+        credentials="include"
     )
     
     result = await response.json()
@@ -331,16 +333,16 @@ async def handle_user_login(event):
             status_box.style.display = "block"
             js.document.getElementById("u-email").value = ""
             js.document.getElementById("u-password").value = ""
-            # Store login state in localStorage
             js.window.localStorage.setItem("loggedIn", "true")
-            js.window.localStorage.setItem("userName", result.get("message", ""))
+            js.window.localStorage.setItem("userName", result.get("name", ""))
             js.window.localStorage.setItem("userType", "user")
-            # Redirect after a short delay (to requested page or home)
             url_params = js.URLSearchParams.new(js.window.location.search)
             redirect_url = url_params.get("redirect")
             if not redirect_url or redirect_url.strip() == "":
                 redirect_url = "home.html"
-            js.window.setTimeout(js.eval(f"() => window.location.href = '{redirect_url}'"), 1500)
+            if redirect_url.startswith(("/", "\\")) or ":" in redirect_url:
+                redirect_url = "home.html"
+            js.window.location.assign(redirect_url)
         else:
             status_box.style.backgroundColor = "#dc3545"
             status_box.innerText = f"❌ {result.get('message', 'Login failed')}"
