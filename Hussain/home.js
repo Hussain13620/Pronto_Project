@@ -1,7 +1,8 @@
 <script type = py>
-    import js
+import js
 from pyscript import when
 from pyodide.ffi import create_proxy
+from pyodide.http import pyfetch
 
 def is_logged_in():
     """Check if the user is logged in by reading localStorage."""
@@ -55,8 +56,13 @@ for i in range(cards.length):
     cards[i].addEventListener("click", service_card_proxy)
 
 # Update nav buttons based on login state
-def handle_logout(event):
+async def handle_logout(event):
     event.preventDefault()
+    try:
+        await pyfetch("http://127.0.0.1:8000/logout", method="POST", credentials="include")
+    except Exception:
+        js.window.alert("Could not log out from the server. Please try again.")
+        return
     js.window.localStorage.removeItem("loggedIn")
     js.window.localStorage.removeItem("userName")
     js.window.localStorage.removeItem("userType")
