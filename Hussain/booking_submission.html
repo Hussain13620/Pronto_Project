@@ -8,11 +8,7 @@
     <title>KAAMKAAJ - Booking Submission</title>
 
     <script>
-        if (localStorage.getItem("loggedIn") !== "true") {
-            const currentPath = window.location.pathname.split('/').pop() || 'booking_submission.html';
-            const redirectTarget = currentPath + window.location.search;
-            window.location.replace("login.html?redirect=" + encodeURIComponent(redirectTarget));
-        }
+        window.PRONTO_API_BASE_URL = window.PRONTO_API_BASE_URL || "http://127.0.0.1:8000";
     </script>
 
     <link rel="stylesheet" href="style.css">
@@ -204,6 +200,7 @@
             </div>
 
             <button type="submit" class="confirm-btn">Confirm Booking</button>
+            <p id="booking-status" role="status" aria-live="polite"></p>
 
         </form>
     </section>
@@ -221,10 +218,7 @@
 
             <a href="home.html" class="general">Home</a>
             <a href="moksh_homeservices.html" class="general">Services</a>
-<<<<<<< HEAD
-=======
             <a href="packages.html" class="general">Packages</a>
->>>>>>> 20470e445933328fa493009a037c1d337e708b90
             <a href="about.html" class="general">About</a>
             <a href="contactpage.html" class="general">Contact</a>
 
@@ -245,7 +239,22 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", async () => {
+            const apiBase = window.PRONTO_API_BASE_URL;
+            let csrfToken = "";
+            try {
+                const sessionResponse = await fetch(`${apiBase}/auth/me`, { credentials: "include" });
+                const session = await sessionResponse.json();
+                if (!sessionResponse.ok || session.role !== "user") {
+                    throw new Error("Please sign in with a user account to book a service.");
+                }
+                csrfToken = session.csrf_token;
+            } catch (error) {
+                const redirectTarget = "booking_submission.html" + window.location.search;
+                window.location.replace("login.html?redirect=" + encodeURIComponent(redirectTarget));
+                return;
+            }
+
             const urlParams = new URLSearchParams(window.location.search);
             const packageId = urlParams.get('package');
             const serviceId = urlParams.get('service');
@@ -286,9 +295,48 @@
             const closeBtn = document.getElementById("close-popup-btn");
 
             if (bookingForm && popup) {
-                bookingForm.addEventListener("submit", (e) => {
+                bookingForm.addEventListener("submit", async (e) => {
                     e.preventDefault();
-                    popup.classList.add("active");
+                    const selectedServices = Array.from(
+                        bookingForm.querySelectorAll('input[name="services"]:checked')
+                    ).map((input) => input.value);
+                    const propertyType = bookingForm.querySelector('input[name="property_type"]:checked');
+                    const status = document.getElementById("booking-status");
+                    const submitButton = bookingForm.querySelector('button[type="submit"]');
+
+                    if (selectedServices.length === 0) {
+                        status.textContent = "Select at least one service.";
+                        return;
+                    }
+
+                    status.textContent = "";
+                    submitButton.disabled = true;
+                    try {
+                        const response = await fetch(
+                            `${apiBase}/service-requests`,
+                            {
+                                method: "POST",
+                                credentials: "include",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "X-CSRF-Token": csrfToken
+                                },
+                                body: JSON.stringify({
+                                    services: selectedServices,
+                                    property_type: propertyType ? propertyType.value : null
+                                })
+                            }
+                        );
+                        const result = await response.json();
+                        if (!response.ok) {
+                            throw new Error(result.detail || "The booking could not be submitted.");
+                        }
+                        popup.classList.add("active");
+                    } catch (error) {
+                        status.textContent = error.message || "Could not submit booking. Check the server connection.";
+                    } finally {
+                        submitButton.disabled = false;
+                    }
                 });
             }
 
@@ -304,12 +352,18 @@
     <script type="py">
 import js
 from pyodide.ffi import create_proxy
+from pyodide.http import pyfetch
 
 def is_logged_in():
     return js.window.localStorage.getItem("loggedIn") == "true"
 
-def handle_logout(event):
+async def handle_logout(event):
     event.preventDefault()
+    try:
+        await pyfetch("http://127.0.0.1:8000/logout", method="POST", credentials="include")
+    except Exception:
+        js.window.alert("Could not log out from the server. Please try again.")
+        return
     js.window.localStorage.removeItem("loggedIn")
     js.window.localStorage.removeItem("userName")
     js.window.localStorage.removeItem("userType")
