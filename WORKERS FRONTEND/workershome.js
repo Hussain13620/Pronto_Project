@@ -19,6 +19,12 @@ const translations = {
         allTime: "ಇದುವರೆಗಿನ ಗಳಿಕೆ",
         requests: "ಕೆಲಸದ ವಿನಂತಿಗಳು",
         requestsSub: "ನಿಮ್ಮ ಹತ್ತಿರದ ಕೆಲಸಗಳು",
+        requestedServices: "ಅಗತ್ಯವಿರುವ ಸೇವೆಗಳು",
+        requestNumber: "ವಿನಂತಿ",
+        propertyType: "ಮನೆಯ ಪ್ರಕಾರ",
+        requestLoadError: "ವಿನಂತಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸರ್ವರ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ.",
+        claimRequest: "ಕೆಲಸವನ್ನು ಸ್ವೀಕರಿಸಿ",
+        requestClaimed: "ಕೆಲಸವನ್ನು ನಿಮಗೆ ನಿಗದಿಪಡಿಸಲಾಗಿದೆ.",
         noRequests: "ಯಾವುದೇ ಹೊಸ ವಿನಂತಿಗಳಿಲ್ಲ",
         noRequestsSub: "ಹೊಸ ಕೆಲಸದ ವಿನಂತಿಗಳಿಗಾಗಿ ಕಾಯಿರಿ.",
         goOnline: "ಕೆಲಸ ಪಡೆಯಲು ಆನ್‌ಲೈನ್‌ಗೆ ಬನ್ನಿ",
@@ -51,6 +57,12 @@ const translations = {
         allTime: "Lifetime earnings",
         requests: "Job Requests",
         requestsSub: "Jobs available near you",
+        requestedServices: "Services requested",
+        requestNumber: "Request",
+        propertyType: "Property type",
+        requestLoadError: "Could not load requests. Check the server connection.",
+        claimRequest: "Accept this job",
+        requestClaimed: "This job is now assigned to you.",
         noRequests: "No new requests",
         noRequestsSub: "Wait for new job requests.",
         goOnline: "Go online to receive jobs",
@@ -83,6 +95,12 @@ const translations = {
         allTime: "अब तक की कमाई",
         requests: "काम के अनुरोध",
         requestsSub: "आपके आस-पास उपलब्ध काम",
+        requestedServices: "आवश्यक सेवाएं",
+        requestNumber: "अनुरोध",
+        propertyType: "संपत्ति का प्रकार",
+        requestLoadError: "अनुरोध लोड नहीं हो सके। सर्वर कनेक्शन जांचें।",
+        claimRequest: "यह काम स्वीकार करें",
+        requestClaimed: "यह काम अब आपको दिया गया है।",
         noRequests: "कोई नया अनुरोध नहीं",
         noRequestsSub: "नए काम के अनुरोधों का इंतजार करें।",
         goOnline: "काम पाने के लिए ऑनलाइन आएं",
@@ -98,6 +116,39 @@ const translations = {
 };
 
 const STORAGE_KEY = "pronto.worker.dashboard.v1";
+const API_BASE_URL = window.PRONTO_API_BASE_URL || "http://127.0.0.1:8000";
+const serviceLabels = {
+    kn: {
+        sweeping: "ಗುಡಿಸುವುದು",
+        mopping: "ನೆಲ ಒರೆಸುವುದು",
+        washing_vessels: "ಪಾತ್ರೆ ತೊಳೆಯುವುದು",
+        laundry: "ಬಟ್ಟೆ ಒಗೆಯುವುದು",
+        dusting: "ಧೂಳು ತೆಗೆಯುವುದು",
+        balcony_cleaning: "ಬಾಲ್ಕನಿ ಸ್ವಚ್ಛತೆ",
+        ironing_and_folding: "ಇಸ್ತ್ರಿ ಮತ್ತು ಮಡಿಸುವುದು",
+        kitchen_prep: "ಅಡುಗೆಮನೆ ಸಿದ್ಧತೆ"
+    },
+    en: {
+        sweeping: "Sweeping",
+        mopping: "Mopping",
+        washing_vessels: "Washing Vessels",
+        laundry: "Laundry",
+        dusting: "Dusting",
+        balcony_cleaning: "Balcony Cleaning",
+        ironing_and_folding: "Ironing and Folding",
+        kitchen_prep: "Kitchen Prep"
+    },
+    hi: {
+        sweeping: "झाड़ू लगाना",
+        mopping: "पोछा लगाना",
+        washing_vessels: "बर्तन धोना",
+        laundry: "कपड़े धोना",
+        dusting: "धूल साफ करना",
+        balcony_cleaning: "बालकनी की सफाई",
+        ironing_and_folding: "इस्त्री और तह करना",
+        kitchen_prep: "रसोई की तैयारी"
+    }
+};
 const defaultDashboard = {
     name: "",
     todayEarnings: 0,
@@ -126,6 +177,7 @@ function readStoredDashboard() {
 }
 
 let dashboard = readStoredDashboard();
+dashboard.isOnline = false;
 
 const languageSelect = document.getElementById("languageSelect");
 const onlineToggle = document.getElementById("onlineToggle");
@@ -135,6 +187,11 @@ const emptyState = document.getElementById("emptyState");
 const offlineMessage = document.getElementById("offlineMessage");
 const liveBadge = document.getElementById("liveBadge");
 const toast = document.getElementById("toast");
+const requestList = document.getElementById("requestList");
+const requestStatus = document.getElementById("requestStatus");
+let requestRefreshInterval = null;
+let csrfToken = "";
+let sessionReady = false;
 
 const rupeeFormatter = new Intl.NumberFormat("en-IN", {
     style: "currency",
@@ -209,6 +266,116 @@ function renderActivity() {
     });
 }
 
+function renderRequests(requests) {
+    const t = translations[languageSelect.value];
+    requestList.replaceChildren();
+
+    requests.forEach((request) => {
+        const card = document.createElement("article");
+        card.className = "request-card";
+
+        const header = document.createElement("div");
+        header.className = "request-top";
+        const label = document.createElement("span");
+        label.className = "request-tag";
+        label.textContent = `${t.requestNumber} #${request.id}`;
+        header.appendChild(label);
+
+        const title = document.createElement("h3");
+        title.textContent = t.requestedServices;
+        title.style.marginBottom = "12px";
+
+        const services = document.createElement("ul");
+        services.className = "requested-services";
+        (Array.isArray(request.services) ? request.services : []).forEach((service) => {
+            const item = document.createElement("li");
+            item.textContent = serviceLabels[languageSelect.value][service] || service;
+            services.appendChild(item);
+        });
+
+        card.append(header, title, services);
+
+        if (request.property_type) {
+            const property = document.createElement("p");
+            property.className = "request-property";
+            property.textContent = `${t.propertyType}: ${request.property_type.replaceAll("_", " ").toUpperCase()}`;
+            card.appendChild(property);
+        }
+
+        const claimButton = document.createElement("button");
+        claimButton.className = "claim-btn";
+        claimButton.type = "button";
+        claimButton.textContent = t.claimRequest;
+        claimButton.addEventListener("click", () => claimRequest(request.id, claimButton));
+        card.appendChild(claimButton);
+        requestList.appendChild(card);
+    });
+
+    emptyState.style.display = requests.length ? "none" : "block";
+}
+
+async function loadRequests() {
+    if (!sessionReady || !onlineToggle.checked) return;
+
+    try {
+        const response = await fetch(`${API_BASE_URL}/worker/service-requests`, {
+            credentials: "include"
+        });
+        if (response.status === 401 || response.status === 403) {
+            redirectToWorkerLogin();
+            return;
+        }
+        if (!response.ok) {
+            throw new Error(`Request list failed with status ${response.status}`);
+        }
+        const data = await response.json();
+        if (!onlineToggle.checked) return;
+        renderRequests(Array.isArray(data.requests) ? data.requests : []);
+        requestStatus.textContent = "";
+    } catch (error) {
+        requestStatus.textContent = translations[languageSelect.value].requestLoadError;
+        console.error("Unable to load worker service requests:", error);
+    }
+}
+
+async function claimRequest(requestId, button) {
+    button.disabled = true;
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/worker/service-requests/${encodeURIComponent(requestId)}/claim`,
+            {
+                method: "POST",
+                credentials: "include",
+                headers: { "X-CSRF-Token": csrfToken }
+            }
+        );
+        const result = await response.json();
+        if (response.status === 401 || response.status === 403) {
+            redirectToWorkerLogin();
+            return;
+        }
+        if (!response.ok) {
+            throw new Error(result.detail || "Could not accept this request.");
+        }
+        showToast(translations[languageSelect.value].requestClaimed);
+        await loadRequests();
+    } catch (error) {
+        requestStatus.textContent = error.message || translations[languageSelect.value].requestLoadError;
+        button.disabled = false;
+    }
+}
+
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+    window.setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+function redirectToWorkerLogin() {
+    const redirect = "../WORKERS%20FRONTEND/workershome.html";
+    window.location.replace(`../Hussain/login.html?redirect=${encodeURIComponent(redirect)}`);
+}
+
 function changeLanguage(language) {
     const selected = translations[language];
 
@@ -220,11 +387,11 @@ function changeLanguage(language) {
         }
     });
 
-    updateOnlineStatus();
+    renderOnlineStatus();
     renderDashboard();
 }
 
-function updateOnlineStatus() {
+function renderOnlineStatus() {
     const t = translations[languageSelect.value];
 
     if (onlineToggle.checked) {
@@ -232,7 +399,7 @@ function updateOnlineStatus() {
         statusText.style.color = "#00a86b";
         statusSub.textContent = t.onlineSub;
         offlineMessage.style.display = "none";
-        emptyState.style.display = "block";
+        emptyState.style.display = requestList.childElementCount ? "none" : "block";
         liveBadge.classList.add("visible");
     } else {
         statusText.textContent = t.offline;
@@ -242,9 +409,56 @@ function updateOnlineStatus() {
         offlineMessage.style.display = "block";
         liveBadge.classList.remove("visible");
     }
+}
 
-    dashboard.isOnline = onlineToggle.checked;
-    saveDashboard();
+async function updateOnlineStatus() {
+    if (!sessionReady) return;
+
+    const requestedOnlineStatus = onlineToggle.checked;
+    onlineToggle.disabled = true;
+    requestStatus.textContent = "";
+    try {
+        const response = await fetch(`${API_BASE_URL}/worker/availability`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken
+            },
+            body: JSON.stringify({ online: requestedOnlineStatus })
+        });
+        if (response.status === 401 || response.status === 403) {
+            redirectToWorkerLogin();
+            return;
+        }
+        if (!response.ok) {
+            const result = await response.json();
+            throw new Error(result.detail || "Could not update your availability.");
+        }
+
+        dashboard.isOnline = requestedOnlineStatus;
+        saveDashboard();
+        renderOnlineStatus();
+
+        if (requestedOnlineStatus) {
+            await loadRequests();
+            if (requestRefreshInterval === null) {
+                requestRefreshInterval = setInterval(loadRequests, 5000);
+            }
+        } else {
+            requestList.replaceChildren();
+            emptyState.style.display = "none";
+            requestStatus.textContent = "";
+            clearInterval(requestRefreshInterval);
+            requestRefreshInterval = null;
+        }
+    } catch (error) {
+        onlineToggle.checked = !requestedOnlineStatus;
+        renderOnlineStatus();
+        requestStatus.textContent = error.message || translations[languageSelect.value].requestLoadError;
+    } finally {
+        onlineToggle.disabled = false;
+    }
 }
 
 languageSelect.addEventListener("change", function () {
@@ -252,9 +466,56 @@ languageSelect.addEventListener("change", function () {
     changeLanguage(this.value);
 });
 
-onlineToggle.addEventListener("change", updateOnlineStatus);
-
-onlineToggle.checked = Boolean(dashboard.isOnline);
 const initialLanguage = localStorage.getItem("pronto.worker.language") || "kn";
 languageSelect.value = initialLanguage;
-changeLanguage(initialLanguage);
+onlineToggle.checked = false;
+renderOnlineStatus();
+
+onlineToggle.addEventListener("change", updateOnlineStatus);
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+    try {
+        if (onlineToggle.checked) {
+            await fetch(`${API_BASE_URL}/worker/availability`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-Token": csrfToken
+                },
+                body: JSON.stringify({ online: false })
+            });
+        }
+        await fetch(`${API_BASE_URL}/logout`, {
+            method: "POST",
+            credentials: "include"
+        });
+    } finally {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userType");
+        redirectToWorkerLogin();
+    }
+});
+
+async function initializeWorkerDashboard() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/auth/me`, {
+            credentials: "include"
+        });
+        const session = await response.json();
+        if (!response.ok || session.role !== "worker") {
+            redirectToWorkerLogin();
+            return;
+        }
+        csrfToken = session.csrf_token;
+        dashboard.name = session.name;
+        sessionReady = true;
+        changeLanguage(initialLanguage);
+    } catch (error) {
+        requestStatus.textContent = translations[languageSelect.value].requestLoadError;
+        console.error("Unable to verify worker session:", error);
+    }
+}
+
+initializeWorkerDashboard();
